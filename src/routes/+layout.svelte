@@ -1,21 +1,23 @@
 <script lang="ts">
-    import "../app.css";
+	import '../app.css';
+	import Header from '$lib/layout/Header.svelte';
+	import Footer from '$lib/layout/Footer.svelte';
 </script>
 
-<header>Header</header>
-<main class="flex-grow">
-    <slot />
+<Header />
+<main class="bg-green-500 flex-grow">
+	<slot />
 </main>
-<footer>Footer</footer>
+<Footer />
 
 <style lang="postcss">
-    :global(html) {
-      min-height: 100vh;
-    }
-  
-    :global(body) {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+	:global(html) {
+		min-height: 100vh;
+	}
+
+	:global(body) {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
 </style>
