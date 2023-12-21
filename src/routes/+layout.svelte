@@ -1,11 +1,24 @@
 <script lang="ts">
+	import { onNavigate } from '$app/navigation';
 	import '../app.css';
-	import Header from '$lib/layout/Header.svelte';
+	import Navbar from '$lib/layout/Navbar.svelte';
 	import Footer from '$lib/layout/Footer.svelte';
+
+	// Does not work with Firefox or Safari
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
-<Header />
-<main class="bg-green-500 flex-grow">
+<Navbar />
+<main class="flex bg-primary flex-grow text-white">
 	<slot />
 </main>
 <Footer />
