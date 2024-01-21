@@ -2,24 +2,24 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-    colors: {},
+		colors: {},
 		extend: {
-      fontFamily: {
-        primary: ['IBM Plex Mono', 'sans-serif'],
-      },
-    }
+			fontFamily: {
+				primary: ['IBM Plex Mono', 'sans-serif']
+			}
+		}
 	},
 	plugins: [require('daisyui')],
-  daisyui: {
-    themes:[
-      {
-        custom: {
-          primary: "#22092C",
-          "primary-content": "#F8F4E3",
-          secondary: "#960200",
-        },
-      },
-      "custom"
-    ]
-  },
+	daisyui: {
+		themes: [
+			{
+				custom: {
+					primary: '#22092C',
+					'primary-content': '#F8F4E3',
+					secondary: '#960200'
+				}
+			},
+			'custom'
+		]
+	}
 };
