@@ -3,10 +3,24 @@
 	import '../app.css';
 	import Navbar from '$lib/layout/Navbar.svelte';
 	import Footer from '$lib/layout/Footer.svelte';
+	import { goto, afterNavigate } from '$app/navigation';
+	import { base } from '$app/paths';
+	import { page } from '$app/stores';
+
+	let previousPages: string[] = [base];
 
 	// Does not work with Firefox or Safari
 	onNavigate((navigation) => {
-		if (!document.startViewTransition) return;
+		document.documentElement.classList.remove('back-transition');
+		if (
+			!document.startViewTransition ||
+			navigation.to?.url.pathname === navigation.from?.url.pathname
+		)
+			return;
+
+		if (navigation.to?.url.pathname === previousPages[0]) {
+			document.documentElement.classList.add('back-transition');
+		}
 
 		return new Promise((resolve) => {
 			document.startViewTransition(async () => {
@@ -14,6 +28,15 @@
 				await navigation.complete;
 			});
 		});
+	});
+
+	afterNavigate(({ from }) => {
+		if (previousPages[0] === $page.url.pathname) {
+			previousPages.shift();
+		} else {
+			if (from) previousPages.unshift(from.url.pathname);
+		}
+		console.log(previousPages);
 	});
 </script>
 
@@ -59,7 +82,7 @@
 	}
 
 	:root::view-transition {
-		background-color: #22092C;
+		background-color: #22092c;
 	}
 
 	:root::view-transition-old(root) {
@@ -72,5 +95,14 @@
 		animation:
 			210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
 			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+	}
+
+	/* FIXME: no slide happens, just a fade out/in. Better than nothing, I guess */
+	:global(.back-transition)::view-transition-old(root) {
+		animation-name: fade-out, slide-to-right;
+	}
+
+	:global(.back-transition)::view-transition-new(root) {
+		animation-name: fade-in, slide-from-left;
 	}
 </style>

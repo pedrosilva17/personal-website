@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Pedro Silva - {title}</title>
+	<title>user@{title.toLowerCase()}</title>
 </svelte:head>
 <section
 	class="flex flex-grow flex-col max-w-100% md:max-w-[80%] m-auto text-lg text-primary-content justify-center text-center gap-5"
