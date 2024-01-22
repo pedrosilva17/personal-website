@@ -4,6 +4,6 @@
 </script>
 
 <Page title="Projects">
-	<h1 class="text-7xl text-center">Projects</h1>
+	<h1 class="text-4xl md:text-8xl">Projects</h1>
 	<p>Personal and course projects I've worked on.</p>
 </Page>
