@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Page from "$lib/layout/Page.svelte";
-
+	import Page from '$lib/layout/Page.svelte';
 </script>
 
 <Page title="Sandbox">
