@@ -6,7 +6,7 @@ export default {
 			primary: '#363062',
 			'primary-variant': '#4D4C7D',
 			secondary: '#F99417',
-			white: '#F5F5F5',
+			white: '#F5F5F5'
 		},
 		extend: {
 			fontFamily: {
@@ -22,7 +22,7 @@ export default {
 					primary: '#363062',
 					'primary-variant': '#4D4C7D',
 					secondary: '#F99417',
-					white: '#F5F5F5',
+					white: '#F5F5F5'
 				}
 			},
 			'custom'

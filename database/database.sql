@@ -14,6 +14,7 @@ CREATE TABLE Projects (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
     description TEXT,
+    link TEXT,
     has_image INTEGER
 );
 
@@ -31,15 +32,15 @@ CREATE TABLE ProjectTechnologies (
 );
 
 /* Populate */
-INSERT INTO Projects (title, description, has_image) VALUES
-    ('Project 1', 'Description 1', 0),
-    ('Project 2', 'Description 2', 0),
-    ('Project 3', 'Description 3', 0),
-    ('Project 4', 'Description 4', 0),
-    ('Project 5', 'Description 5', 0),
-    ('Project 6', 'Description 6', 0),
-    ('Project 7', 'Description 7', 0),
-    ('Project 8', 'Description 8', 0);
+INSERT INTO Projects (title, description, link, has_image) VALUES
+    ('Project 1', 'Description 1', 'https://www.google.com/', 0),
+    ('Project 2', 'Description 2', 'https://www.google.com/', 0),
+    ('Project 3', 'Description 3', 'https://www.google.com/', 0),
+    ('Project 4', 'Description 4', 'https://www.google.com/', 0),
+    ('Project 5', 'Description 5', 'https://www.google.com/', 0),
+    ('Project 6', 'Description 6', 'https://www.google.com/', 0),
+    ('Project 7', 'Description 7', 'https://www.google.com/', 0),
+    ('Project 8', 'Description 8', 'https://www.google.com/', 0);
 
 INSERT INTO Technologies (name) VALUES
     ('JavaScript'),

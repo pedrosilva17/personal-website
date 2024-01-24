@@ -81,7 +81,7 @@
 	}
 
 	:root::view-transition {
-		background-color: #22092c;
+		background-color: theme('colors.primary');
 	}
 
 	:root::view-transition-old(root) {

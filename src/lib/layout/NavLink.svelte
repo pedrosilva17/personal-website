@@ -15,6 +15,6 @@
 	a.active {
 		border-width: 2px;
 		border-radius: 0.75rem;
-		border-color: #960200ff;
+		border-color: theme('colors.secondary');
 	}
 </style>

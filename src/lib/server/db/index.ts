@@ -13,8 +13,8 @@ export function getRandomNumber(): NumberInfo {
 export function getProjects(): Project[] {
 	const projects: Record<number, Project> = {};
 	const query =
-		'SELECT Projects.id AS id, Projects.title AS title, Projects.description AS description, Projects.has_image AS hasImage, \
-	Technologies.name AS technology FROM Projects \
+		'SELECT Projects.id AS id, Projects.title AS title, Projects.description AS description, Projects.link AS link, \
+	Projects.has_image AS hasImage, Technologies.name AS technology FROM Projects \
 	LEFT JOIN ProjectTechnologies ON Projects.id = ProjectTechnologies.project_id \
 	LEFT JOIN Technologies ON ProjectTechnologies.technology_id = Technologies.id;';
 
@@ -27,6 +27,7 @@ export function getProjects(): Project[] {
 				title: project.title,
 				description: project.description,
 				technologies: [project.technology],
+				link: project.link,
 				hasImage: project.hasImage
 			};
 		}

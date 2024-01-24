@@ -9,6 +9,7 @@ export type Project = {
 	title: string;
 	description: string;
 	technologies: string[];
+	link: string;
 	hasImage: boolean;
 };
 
@@ -17,5 +18,6 @@ export type ProjectTechnology = {
 	title: string;
 	description: string;
 	technology: string;
+	link: string;
 	hasImage: boolean;
 };
