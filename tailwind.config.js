@@ -5,6 +5,7 @@ export default {
 		colors: {
 			primary: '#363062',
 			'primary-variant': '#4D4C7D',
+			'primary-dark': '#252051',
 			secondary: '#F99417',
 			white: '#F5F5F5'
 		},
@@ -21,6 +22,7 @@ export default {
 				custom: {
 					primary: '#363062',
 					'primary-variant': '#4D4C7D',
+					'primary-dark': '#252051',
 					secondary: '#F99417',
 					white: '#F5F5F5'
 				}

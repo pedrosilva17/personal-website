@@ -6,7 +6,7 @@
 <a
 	{href}
 	class:active={$page.url.pathname === href}
-	class="btn btn-primary text-xl border-2 hover:border-secondary focus:border-secondary rounded-xl"
+	class="btn btn-primary w-full md:w-fit text-base lg:text-xl border-2 hover:border-secondary focus:border-secondary rounded-xl"
 >
 	<slot />
 </a>
