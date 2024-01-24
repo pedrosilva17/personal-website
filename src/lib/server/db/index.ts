@@ -12,21 +12,23 @@ export function getRandomNumber(): NumberInfo {
 
 export function getProjects(): Project[] {
 	const projects: Record<number, Project> = {};
-	const query = 'SELECT Projects.id AS id, Projects.title AS title, Projects.description AS description, \
+	const query =
+		'SELECT Projects.id AS id, Projects.title AS title, Projects.description AS description, Projects.has_image AS hasImage, \
 	Technologies.name AS technology FROM Projects \
 	LEFT JOIN ProjectTechnologies ON Projects.id = ProjectTechnologies.project_id \
-	LEFT JOIN Technologies ON ProjectTechnologies.technology_id = Technologies.id;'
+	LEFT JOIN Technologies ON ProjectTechnologies.technology_id = Technologies.id;';
 
 	const projTech = db.prepare(query).all() as ProjectTechnology[];
 	for (const project of projTech) {
-		if (project.id in projects) projects[project.id].technologies.push(project.technology)
+		if (project.id in projects) projects[project.id].technologies.push(project.technology);
 		else {
 			projects[project.id] = {
 				id: project.id,
-				title: project.title, 
+				title: project.title,
 				description: project.description,
-				technologies: [project.technology]
-			}
+				technologies: [project.technology],
+				hasImage: project.hasImage
+			};
 		}
 	}
 	console.log(Object.values(projects));

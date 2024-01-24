@@ -36,7 +36,6 @@
 		} else {
 			if (from) previousPages.unshift(from.url.pathname);
 		}
-		console.log(previousPages);
 	});
 </script>
 

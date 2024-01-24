@@ -1,1 +1,1 @@
-<footer class="p-3 bg-primary text-primary-content">Footer</footer>
+<footer class="p-3 bg-primary text-white">Footer</footer>

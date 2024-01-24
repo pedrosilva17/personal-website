@@ -2,7 +2,12 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		colors: {},
+		colors: {
+			primary: '#363062',
+			'primary-variant': '#4D4C7D',
+			secondary: '#F99417',
+			white: '#F5F5F5',
+		},
 		extend: {
 			fontFamily: {
 				primary: ['IBM Plex Mono', 'sans-serif']
@@ -14,9 +19,10 @@ export default {
 		themes: [
 			{
 				custom: {
-					primary: '#22092C',
-					'primary-content': '#F8F4E3',
-					secondary: '#960200'
+					primary: '#363062',
+					'primary-variant': '#4D4C7D',
+					secondary: '#F99417',
+					white: '#F5F5F5',
 				}
 			},
 			'custom'
