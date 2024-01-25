@@ -34,6 +34,6 @@
 				: 'Click the button below and learn something new about a number!'}
 		</p>
 	{/key}
-	<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg">New Number</button>
+	<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg text-primary">New Number</button>
 	<p class=""></p>
 </Page>
