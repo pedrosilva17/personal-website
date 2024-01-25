@@ -38,7 +38,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@threlte/core": "^7.0.12",
+		"@threlte/extras": "^8.3.0",
+		"@types/three": "^0.160.0",
 		"better-sqlite3": "^9.2.2",
-		"d3": "^7.8.5"
+		"d3": "^7.8.5",
+		"three": "^0.160.1"
 	}
 }
