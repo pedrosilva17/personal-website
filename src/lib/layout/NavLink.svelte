@@ -6,15 +6,14 @@
 <a
 	{href}
 	class:active={$page.url.pathname === href}
-	class="btn btn-primary w-full md:w-fit text-base lg:text-xl border-2 hover:border-secondary focus:border-secondary rounded-xl"
+	class="group transition duration-300 ease-in-out px-4 py-1 w-full md:w-fit text-base lg:text-xl justify-center text-center"
 >
 	<slot />
+	<span class='block max-w-0 m-auto group-hover:max-w-full transition-all bg-secondary duration-500 h-0.5'></span>
 </a>
 
 <style>
-	a.active {
-		border-width: 2px;
-		border-radius: 0.75rem;
-		border-color: theme('colors.secondary');
+	a.active > span {
+		max-width: 100%;
 	}
 </style>
