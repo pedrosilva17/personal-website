@@ -26,7 +26,7 @@
 </script>
 
 <Page title="Numbers">
-	<h1 class="text-4xl md:text-8xl">{info ? $tweenedNumber : 'Number Facts'}</h1>
+	<h1 class="text-6xl md:text-8xl">{info ? $tweenedNumber : 'Number Facts'}</h1>
 	{#key info?.description}
 		<p in:fade={{ duration: 1000 }}>
 			{@html info
@@ -34,6 +34,8 @@
 				: 'Click the button below and learn something new about a number!'}
 		</p>
 	{/key}
-	<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg text-primary">New Number</button>
+	<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg text-primary"
+		>New Number</button
+	>
 	<p class=""></p>
 </Page>

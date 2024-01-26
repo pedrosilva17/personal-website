@@ -8,44 +8,44 @@ Title: Mario Question Block
 -->
 
 <script>
-  import { Group } from 'three'
-  import { T, forwardEventHandlers } from '@threlte/core'
-  import { useGltf } from '@threlte/extras'
+	import { Group } from 'three';
+	import { T, forwardEventHandlers } from '@threlte/core';
+	import { useGltf } from '@threlte/extras';
 
-  export const ref = new Group()
+	export const ref = new Group();
 
-  const gltf = useGltf('/src/lib/3d/models/question-block-transformed.glb', { useDraco: true })
+	const gltf = useGltf('/src/lib/3d/models/question-block-transformed.glb', { useDraco: true });
 
-  const component = forwardEventHandlers()
+	const component = forwardEventHandlers();
 </script>
 
 <T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
-  {#await gltf}
-    <slot name="fallback" />
-  {:then gltf}
-    <T.Mesh scale={3}>
-      <T.Mesh geometry={gltf.nodes.Object_4.geometry} material={gltf.materials.Material} />
-      <T.Mesh geometry={gltf.nodes.Object_5.geometry} material={gltf.materials['Material.001']} />
-      <T.Mesh geometry={gltf.nodes.Object_7.geometry} material={gltf.materials['Material.002']} />
-      <T.Mesh
-        geometry={gltf.nodes.Object_9.geometry}
-        material={gltf.materials['Material.002']}
-        rotation={[0, Math.PI / 2, 0]}
-      />
-      <T.Mesh
-        geometry={gltf.nodes.Object_11.geometry}
-        material={gltf.materials['Material.002']}
-        rotation={[-Math.PI, 0, -Math.PI]}
-      />
-      <T.Mesh
-        geometry={gltf.nodes.Object_13.geometry}
-        material={gltf.materials['Material.002']}
-        rotation={[0, -Math.PI / 2, 0]}
-      />
-    </T.Mesh>
-  {:catch error}
-    <slot name="error" {error} />
-  {/await}
+	{#await gltf}
+		<slot name="fallback" />
+	{:then gltf}
+		<T.Mesh scale={3}>
+			<T.Mesh geometry={gltf.nodes.Object_4.geometry} material={gltf.materials.Material} />
+			<T.Mesh geometry={gltf.nodes.Object_5.geometry} material={gltf.materials['Material.001']} />
+			<T.Mesh geometry={gltf.nodes.Object_7.geometry} material={gltf.materials['Material.002']} />
+			<T.Mesh
+				geometry={gltf.nodes.Object_9.geometry}
+				material={gltf.materials['Material.002']}
+				rotation={[0, Math.PI / 2, 0]}
+			/>
+			<T.Mesh
+				geometry={gltf.nodes.Object_11.geometry}
+				material={gltf.materials['Material.002']}
+				rotation={[-Math.PI, 0, -Math.PI]}
+			/>
+			<T.Mesh
+				geometry={gltf.nodes.Object_13.geometry}
+				material={gltf.materials['Material.002']}
+				rotation={[0, -Math.PI / 2, 0]}
+			/>
+		</T.Mesh>
+	{:catch error}
+		<slot name="error" {error} />
+	{/await}
 
-  <slot {ref} />
+	<slot {ref} />
 </T>

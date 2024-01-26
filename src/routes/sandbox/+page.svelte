@@ -3,6 +3,6 @@
 </script>
 
 <Page title="Sandbox">
-	<h1 class="text-4xl md:text-8xl">Sandbox</h1>
+	<h1 class="text-6xl md:text-8xl">Sandbox</h1>
 	<p>Random tools and playthings.</p>
 </Page>

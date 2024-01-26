@@ -8,30 +8,30 @@ Title: Pokemon Basic Pokeball
 -->
 
 <script>
-  import { Group } from 'three'
-  import { T, forwardEventHandlers } from '@threlte/core'
-  import { useGltf } from '@threlte/extras'
+	import { Group } from 'three';
+	import { T, forwardEventHandlers } from '@threlte/core';
+	import { useGltf } from '@threlte/extras';
 
-  export const ref = new Group()
+	export const ref = new Group();
 
-  const gltf = useGltf('src/lib/3d/models/pokeball-transformed.glb', { useDraco: true })
+	const gltf = useGltf('src/lib/3d/models/pokeball-transformed.glb', { useDraco: true });
 
-  const component = forwardEventHandlers()
+	const component = forwardEventHandlers();
 </script>
 
 <T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
-  {#await gltf}
-    <slot name="fallback" />
-  {:then gltf}
-    <T.Mesh
-      geometry={gltf.nodes.PokeBall__0.geometry}
-      material={gltf.materials['Scene_-_Root']}
-      rotation={[-Math.PI / 2, 0, 0]}
-      scale={0.04}
-    />
-  {:catch error}
-    <slot name="error" {error} />
-  {/await}
+	{#await gltf}
+		<slot name="fallback" />
+	{:then gltf}
+		<T.Mesh
+			geometry={gltf.nodes.PokeBall__0.geometry}
+			material={gltf.materials['Scene_-_Root']}
+			rotation={[-Math.PI / 2, 0, 0]}
+			scale={0.04}
+		/>
+	{:catch error}
+		<slot name="error" {error} />
+	{/await}
 
-  <slot {ref} />
+	<slot {ref} />
 </T>
