@@ -12,6 +12,9 @@ export default {
 		extend: {
 			fontFamily: {
 				primary: ['IBM Plex Mono', 'sans-serif']
+			},
+			screens: {
+				'3xl': '2000px'
 			}
 		}
 	},
