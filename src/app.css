@@ -8,3 +8,27 @@
 		font-family: 'IBM Plex Mono', sans-serif;
 	}
 }
+
+@layer utilities {
+	:root {
+		scrollbar-color: theme('colors.secondary') theme('colors.primary');
+	}
+	:root::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+
+	:root::-webkit-scrollbar-track {
+		background: theme('colors.primary');
+	}
+
+	:root::-webkit-scrollbar-thumb {
+		background: theme('colors.primary');
+		border-radius: 100vh;
+		border: 1px solid theme('colors.secondary');
+	}
+
+	:root::-webkit-scrollbar-thumb:hover {
+		background: theme('colors.secondary');
+	}
+}
