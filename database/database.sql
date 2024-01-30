@@ -33,35 +33,48 @@ CREATE TABLE ProjectTags (
 
 /* Populate */
 INSERT INTO Projects (title, description, link, has_image) VALUES
-    ('Project 1', 'Description 1', 'https://www.google.com/', 0),
-    ('Project 2', 'Description 2', 'https://www.google.com/', 0),
-    ('Project 3', 'Description 3', 'https://www.google.com/', 0),
-    ('Project 4', 'Description 4', 'https://www.google.com/', 0),
-    ('Project 5', 'Description 5', 'https://www.google.com/', 0),
-    ('Project 6', 'Description 6', 'https://www.google.com/', 0),
-    ('Project 7', 'Description 7', 'https://www.google.com/', 0),
-    ('Project 8', 'Description 8', 'https://www.google.com/', 0);
+    ('Bot of Greed', 'A Discord bot which displays and uses information about Yu-Gi-Oh cards.', 'https://github.com/pedrosilva17/bot-of-greed', 0),
+    ('FEUPZero', 'A three.js car racing game for one player.', 'https://github.com/pedrosilva17/sgi-2023/tree/main/tp3', 0),
+    ('Personal Website', "My personal website, where you're reading this from.", 'https://github.com/pedrosilva17/personal-website', 0),
+    ('Earworm', 'A web prototype for a music store.', 'https://github.com/pedrosilva17/feup-lbaw-proj', 0),
+    ('Bound', 'A recreation of the board game Bound for one or two players.', 'https://github.com/pedrosilva17/bound-ia-proj-1', 0),
+    ('easy-wallpaper', 'A simple terminal program to create wallpapers with image patterns.', 'https://github.com/pedrosilva17/easy-wallpaper', 0),
+    ('Qawale', 'A recreation of the board game Qawale in the terminal using functional programming.', 'https://github.com/pedrosilva17/feup-pfl-qawale', 0),
+    ('Disease Search Engine', 'A search engine for querying disease information, displayed in a map view.', 'https://github.com/pedrosilva17/feup-pri-2023', 0),
+    ('Flying Creature Playground', 'A WebGL scene featuring a controllable creature that throws eggs.', 'https://github.com/pedrosilva17/cg-2023/tree/master/project', 0);
 
 INSERT INTO Tags (name) VALUES
-    ('JavaScript'),
-    ('TypeScript'),
-    ('Python'),
-    ('Java'),
-    ('SQL'),
-    ('HTML'),
-    ('CSS');
+    ('Personal'),
+    ('University'),
+    ('Web'),
+    ('Bot'),
+    ('Tool'),
+    ('Game'),
+    ('Terminal'),
+    ('GUI');
 
 INSERT INTO ProjectTags (project_id, tag_id) VALUES
     (1, 1),
-    (1, 2),
-    (1, 3),
-    (2, 4),
-    (2, 5),
+    (1, 4),
+    (2, 2),
+    (2, 6),
+    (2, 8),
     (3, 1),
-    (3, 2),
-    (4, 4),
-    (5, 5),
-    (6, 6),
+    (3, 3),
+    (4, 2),
+    (4, 3),
+    (5, 2),
+    (5, 6),
+    (5, 8),
+    (6, 1),
+    (6, 5),
+    (6, 7),
     (7, 2),
-    (8, 3);
+    (7, 6),
+    (7, 7),
+    (8, 2),
+    (8, 3),
+    (9, 2),
+    (9, 6),
+    (9, 8);
 
