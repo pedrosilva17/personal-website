@@ -40,12 +40,16 @@
 </script>
 
 <Navbar />
-<main class="flex bg-primary flex-grow text-white">
+<main class="flex relative bg-primary flex-grow text-white">
 	<slot />
 </main>
 <Footer />
 
 <style lang="postcss">
+	:root {
+		background-color: theme('colors.primary');
+	}
+	
 	:global(html) {
 		min-height: 100vh;
 	}
@@ -88,12 +92,14 @@
 		animation:
 			90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
 			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+		overflow: hidden;
 	}
 
 	:root::view-transition-new(root) {
 		animation:
 			210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
 			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+		overflow: scroll;
 	}
 
 	/* FIXME: no slide happens, just a fade out/in. Better than nothing, I guess */
