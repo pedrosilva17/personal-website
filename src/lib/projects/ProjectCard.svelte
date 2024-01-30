@@ -9,7 +9,7 @@
 
 <a
 	href={project.link}
-	class="flex w-full min-w-64 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 card shine shadow-lg"
+	class="flex w-full md:w-96 card shine shadow-lg"
 >
 	<figure class="h-32 bg-primary-variant">
 		{#if project.hasImage}
@@ -20,9 +20,9 @@
 			/>
 		{/if}
 	</figure>
-	<div class="card-body bg-primary items-center text-center h-52">
+	<div class="card-body bg-primary items-center text-center min-h-52">
 		<h2 class="card-title">{project.title}</h2>
-		<p class="text-left h-fit">{project.description}</p>
+		<p>{project.description}</p>
 		<div class="card-actions justify-center gap-2">
 			{#each project.tags as tag}
 				<Tag color="bg-secondary">{tag}</Tag>
@@ -51,6 +51,6 @@
 	}
 	.shine:hover:before {
 		transition: left 600ms ease;
-		left: 140%;
+		left: 160%;
 	}
 </style>
