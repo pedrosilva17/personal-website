@@ -7,11 +7,7 @@
 	let path = `/src/lib/assets/projects/${project.title.toLowerCase().split(' ').join('-')}.png`;
 </script>
 
-<a
-	href={project.link}
-	target="_blank"
-	class="flex w-full md:w-96 card shine shadow-lg"
->
+<a href={project.link} target="_blank" class="flex w-full md:w-96 card shine shadow-lg">
 	<figure class="h-32 bg-primary-variant">
 		{#if project.hasImage}
 			<img
@@ -31,27 +27,3 @@
 		</div>
 	</div>
 </a>
-
-<style>
-	.shine {
-		justify-content: center;
-		transition: transform 200ms ease;
-		overflow: hidden;
-	}
-	.shine:before {
-		content: '';
-		position: absolute;
-		height: 200%;
-		width: 4rem;
-		transform: rotate(30deg);
-		background-color: #ffffff33;
-		left: -80%;
-	}
-	.shine:hover {
-		transform: scale(1.05);
-	}
-	.shine:hover:before {
-		transition: left 600ms ease;
-		left: 160%;
-	}
-</style>
