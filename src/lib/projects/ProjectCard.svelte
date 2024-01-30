@@ -24,8 +24,8 @@
 		<h2 class="card-title">{project.title}</h2>
 		<p class="text-left h-fit">{project.description}</p>
 		<div class="card-actions justify-center gap-2">
-			{#each project.technologies as technology}
-				<Tag color="bg-secondary">{technology}</Tag>
+			{#each project.tags as tag}
+				<Tag color="bg-secondary">{tag}</Tag>
 			{/each}
 		</div>
 	</div>

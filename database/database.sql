@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS Numbers;
 DROP TABLE IF EXISTS Projects;
-DROP TABLE IF EXISTS Technologies;
-DROP TABLE IF EXISTS ProjectTechnologies;
+DROP TABLE IF EXISTS Tags;
+DROP TABLE IF EXISTS ProjectTags;
 
 /* Create */
 CREATE TABLE Numbers (
@@ -18,17 +18,17 @@ CREATE TABLE Projects (
     has_image INTEGER
 );
 
-CREATE TABLE Technologies (
+CREATE TABLE Tags (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
 );
 
-CREATE TABLE ProjectTechnologies (
+CREATE TABLE ProjectTags (
     project_id INTEGER,
-    technology_id INTEGER,
-    PRIMARY KEY (project_id, technology_id),
+    tag_id INTEGER,
+    PRIMARY KEY (project_id, tag_id),
     FOREIGN KEY (project_id) REFERENCES Projects(id),
-    FOREIGN KEY (technology_id) REFERENCES Technologies(id)
+    FOREIGN KEY (tag_id) REFERENCES Tags(id)
 );
 
 /* Populate */
@@ -42,7 +42,7 @@ INSERT INTO Projects (title, description, link, has_image) VALUES
     ('Project 7', 'Description 7', 'https://www.google.com/', 0),
     ('Project 8', 'Description 8', 'https://www.google.com/', 0);
 
-INSERT INTO Technologies (name) VALUES
+INSERT INTO Tags (name) VALUES
     ('JavaScript'),
     ('TypeScript'),
     ('Python'),
@@ -51,7 +51,7 @@ INSERT INTO Technologies (name) VALUES
     ('HTML'),
     ('CSS');
 
-INSERT INTO ProjectTechnologies (project_id, technology_id) VALUES
+INSERT INTO ProjectTags (project_id, tag_id) VALUES
     (1, 1),
     (1, 2),
     (1, 3),

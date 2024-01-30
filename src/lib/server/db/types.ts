@@ -8,16 +8,16 @@ export type Project = {
 	id: number;
 	title: string;
 	description: string;
-	technologies: string[];
+	tags: string[];
 	link: string;
 	hasImage: boolean;
 };
 
-export type ProjectTechnology = {
+export type ProjectTag = {
 	id: number;
 	title: string;
 	description: string;
-	technology: string;
+	tag: string;
 	link: string;
 	hasImage: boolean;
 };
