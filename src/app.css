@@ -46,10 +46,12 @@
 		background-color: #ffffff33;
 		left: -80%;
 	}
-	.shine:hover {
+	.shine:hover,
+	.shine:focus {
 		transform: scale(1.05);
 	}
-	.shine:hover:before {
+	.shine:hover:before,
+	.shine:focus:before {
 		transition: left 600ms ease;
 		left: 160%;
 	}

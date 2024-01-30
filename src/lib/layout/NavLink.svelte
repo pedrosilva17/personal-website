@@ -10,7 +10,7 @@
 >
 	<slot />
 	<span
-		class="block max-w-0 m-auto group-hover:max-w-full transition-all bg-secondary duration-500 h-0.5"
+		class="block max-w-0 m-auto group-hover:max-w-full group-focus:max-w-full transition-all bg-secondary duration-500 h-0.5"
 	></span>
 </a>
 
