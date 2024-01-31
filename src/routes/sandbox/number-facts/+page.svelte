@@ -4,7 +4,8 @@
 	import { tweened, type Tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
-	import Page from '$lib/layout/Page.svelte';
+	import Dice from 'svelte-ionicons/Dice.svelte';
+	import SandboxArea from '$lib/layout/SandboxArea.svelte';
 
 	let info: NumberInfo;
 	let tweenedNumber: Tweened<number> = tweened(1, {
@@ -25,7 +26,7 @@
 	}
 </script>
 
-<Page title="Numbers">
+<SandboxArea title="Numbers">
 	<h1 class="text-6xl md:text-8xl">{info ? $tweenedNumber : 'Number Facts'}</h1>
 	{#key info?.description}
 		<p in:fade={{ duration: 1000 }}>
@@ -34,8 +35,7 @@
 				: 'Click the button below and learn something new about a number!'}
 		</p>
 	{/key}
-	<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg text-primary"
-		>New Number</button
+	<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg text-primary group"
+		>Roll <Dice class="group-hover:animate-shake" /></button
 	>
-	<p class=""></p>
-</Page>
+</SandboxArea>

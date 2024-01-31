@@ -49,7 +49,7 @@
 	:root {
 		background-color: theme('colors.primary');
 	}
-	
+
 	:global(html) {
 		min-height: 100vh;
 	}
