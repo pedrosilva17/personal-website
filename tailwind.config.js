@@ -22,18 +22,18 @@ export default {
 			keyframes: {
 				shake: {
 					'10%, 90%': {
-					  transform: 'translate(-1px, 0) rotate(-10deg)'
+						transform: 'translate(-1px, 0) rotate(-10deg)'
 					},
 					'20%, 80%': {
-					  transform: 'translate(2px, 0) rotate(15deg)'
+						transform: 'translate(2px, 0) rotate(15deg)'
 					},
-				  
+
 					'30%, 50%, 70%': {
-					  transform: 'translate(-3px, 0) rotate(-20deg)'
+						transform: 'translate(-3px, 0) rotate(-20deg)'
 					},
-				  
+
 					'40%, 60%': {
-					  transform: 'translate(3px, 0) rotate(20deg)'
+						transform: 'translate(3px, 0) rotate(20deg)'
 					}
 				}
 			}
