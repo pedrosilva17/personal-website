@@ -7,7 +7,7 @@
 	import NintendoSwitch from '$lib/3d/NintendoSwitch.svelte';
 </script>
 
-<Page title="About">
+<Page title="About me">
 	<h1 class="text-6xl lg:text-8xl">About me</h1>
 	<p>
 		Here's some information about me you <span class="italic">surely</span> want to know.

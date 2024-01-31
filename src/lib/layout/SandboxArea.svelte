@@ -5,7 +5,7 @@
 	export let title: string;
 </script>
 
-<Page title="sandbox-{title}">
+<Page title="sandbox/{title}">
 	<a href="/sandbox" class="absolute top-0 left-0 btn btn-circle btn-secondary text-primary m-5"
 		><ArrowBack tabindex="-1" /></a
 	>
