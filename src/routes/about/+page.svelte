@@ -13,8 +13,10 @@
 		Here's some information about me you <span class="italic">surely</span> want to know.
 		<span class="text-xs">(not)</span>
 	</p>
-	<button class="flex mb-10 w-fit px-5 m-auto btn btn-secondary text-primary"
-		>Download CV <Document size="20" /></button
+	<a
+		href="/src/lib/assets/pedro-silva-cv.pdf"
+		class="flex mb-10 w-fit px-5 m-auto btn btn-secondary text-primary"
+		download>Download CV <Document size="20" /></a
 	>
 	<div class="flex flex-col gap-10">
 		<div class="flex flex-col-reverse lg:flex-row gap-10 h-fit">
