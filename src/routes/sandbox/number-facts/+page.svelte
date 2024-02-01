@@ -27,15 +27,26 @@
 </script>
 
 <SandboxArea title="Numbers">
-	<h1 class="text-6xl md:text-8xl">{info ? $tweenedNumber : 'Number Facts'}</h1>
-	{#key info?.description}
-		<p in:fade={{ duration: 1000 }}>
-			{@html info
-				? info.description
-				: 'Click the button below and learn something new about a number!'}
+	<svelte:fragment slot="content">
+		<h1 class="text-6xl md:text-8xl">{info ? $tweenedNumber : 'Number Facts'}</h1>
+		{#key info?.description}
+			<p in:fade={{ duration: 1000 }}>
+				{@html info
+					? info.description
+					: 'Click the button below and learn something new about a number!'}
+			</p>
+		{/key}
+		<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg text-primary group"
+			>Roll <Dice class="group-hover:animate-shake" /></button
+		>
+	</svelte:fragment>
+	<section slot="modal">
+		<h3 class="font-bold text-lg m-auto">What is this?</h3>
+		<p class="py-5">
+			This is a simple random fact generator about numbers, scraped from <a
+				href="https://erich-friedman.github.io/numbers.html"
+				class="text-secondary underline">Erich Friedman's</a
+			> website. Click the "Roll" button and learn something new!
 		</p>
-	{/key}
-	<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg text-primary group"
-		>Roll <Dice class="group-hover:animate-shake" /></button
-	>
+	</section>
 </SandboxArea>
