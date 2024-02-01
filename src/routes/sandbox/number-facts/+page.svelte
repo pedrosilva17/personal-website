@@ -41,7 +41,7 @@
 		>
 	</svelte:fragment>
 	<section slot="modal">
-		<h3 class="font-bold text-lg m-auto">What is this?</h3>
+		<h2 class="font-bold text-lg m-auto">What is this?</h2>
 		<p class="py-5">
 			This is a simple random fact generator about numbers, scraped from <a
 				href="https://erich-friedman.github.io/numbers.html"
