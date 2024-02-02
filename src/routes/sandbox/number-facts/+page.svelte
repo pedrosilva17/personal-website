@@ -28,7 +28,7 @@
 
 <SandboxArea title="Numbers">
 	<svelte:fragment slot="content">
-		<h1 class="text-6xl md:text-8xl">{info ? $tweenedNumber : 'Number Facts'}</h1>
+		<h1 class="text-6xl lg:text-8xl">{info ? $tweenedNumber : 'Number Facts'}</h1>
 		{#key info?.description}
 			<p in:fade={{ duration: 1000 }}>
 				{@html info
@@ -37,7 +37,7 @@
 			</p>
 		{/key}
 		<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg text-primary group"
-			>Roll <Dice class="group-hover:animate-shake" /></button
+			>Roll <Dice class="group-hover:animate-shake outline-none" /></button
 		>
 	</svelte:fragment>
 	<section slot="modal">

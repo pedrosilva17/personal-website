@@ -10,10 +10,10 @@
 	<span>|</span>
 	<div class="flex flex-row gap-2">
 		<a href="https://www.linkedin.com/in/pedrosilva17/" target="_blank">
-			<LogoLinkedIn tabindex="-1" />
+			<LogoLinkedIn tabindex="-1" class="outline-none" />
 		</a>
 		<a href="https://github.com/pedrosilva17" target="_blank">
-			<LogoGithub tabindex="-1" />
+			<LogoGithub tabindex="-1" class="outline-none" />
 		</a>
 	</div>
 </footer>
