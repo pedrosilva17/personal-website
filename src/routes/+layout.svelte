@@ -1,41 +1,37 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
-	import '../app.css';
 	import Navbar from '$lib/layout/Navbar.svelte';
 	import Footer from '$lib/layout/Footer.svelte';
-	import { goto, afterNavigate } from '$app/navigation';
-	import { base } from '$app/paths';
-	import { page } from '$app/stores';
+	import { afterNavigate } from '$app/navigation';
+	import '../app.css';
 
-	let previousPages: string[] = [base];
+	let entries, backEntry;
 
 	// Does not work with Firefox or Safari
-	onNavigate((navigation) => {
-		document.documentElement.classList.remove('back-transition');
+	onNavigate((svelteNav) => {
 		if (
 			!document.startViewTransition ||
-			navigation.to?.url.pathname === navigation.from?.url.pathname
+			svelteNav.to?.url.pathname === svelteNav.from?.url.pathname
 		)
 			return;
 
-		if (navigation.to?.url.pathname === previousPages[0]) {
+		document.documentElement.classList.remove('back-transition');
+		if (svelteNav.to?.url.href === backEntry?.url) {
 			document.documentElement.classList.add('back-transition');
 		}
 
 		return new Promise((resolve) => {
 			document.startViewTransition(async () => {
 				resolve();
-				await navigation.complete;
+				await svelteNav.complete;
 			});
 		});
 	});
 
-	afterNavigate(({ from }) => {
-		if (previousPages[0] === $page.url.pathname) {
-			previousPages.shift();
-		} else {
-			if (from) previousPages.unshift(from.url.pathname);
-		}
+	afterNavigate(() => {
+		if (!document.startViewTransition) return;
+		entries = navigation.entries();
+		backEntry = entries[navigation.currentEntry.index - 1];
 	});
 </script>
 
@@ -85,11 +81,15 @@
 	}
 
 	@keyframes slide-to-right {
-  		to { transform: translateX(30px); }
+		to {
+			transform: translateX(30px);
+		}
 	}
 
 	@keyframes slide-from-left {
-		from { transform: translateX(-30px); }
+		from {
+			transform: translateX(-30px);
+		}
 	}
 
 	:root::view-transition {
