@@ -84,6 +84,14 @@
 		}
 	}
 
+	@keyframes slide-to-right {
+  		to { transform: translateX(30px); }
+	}
+
+	@keyframes slide-from-left {
+		from { transform: translateX(-30px); }
+	}
+
 	:root::view-transition {
 		background-color: theme('colors.primary');
 	}
@@ -102,7 +110,6 @@
 		overflow: scroll;
 	}
 
-	/* FIXME: no slide happens, just a fade out/in. Better than nothing, I guess */
 	:global(.back-transition)::view-transition-old(root) {
 		animation-name: fade-out, slide-to-right;
 	}
