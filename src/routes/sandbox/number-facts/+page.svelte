@@ -5,7 +5,8 @@
 	import { cubicOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 	import Dice from 'svelte-ionicons/Dice.svelte';
-	import SandboxArea from '$lib/layout/SandboxArea.svelte';
+	import SandboxAreaPage from '$lib/layout/SandboxAreaPage.svelte';
+	import MainHeading from '$lib/layout/MainHeading.svelte';
 
 	let info: NumberInfo;
 	let tweenedNumber: Tweened<number> = tweened(1, {
@@ -26,9 +27,9 @@
 	}
 </script>
 
-<SandboxArea title="Numbers">
+<SandboxAreaPage title="Numbers">
 	<svelte:fragment slot="content">
-		<h1 class="text-6xl lg:text-8xl">{info ? $tweenedNumber : 'Number Facts'}</h1>
+		<MainHeading>{info ? $tweenedNumber : 'Number Facts'}</MainHeading>
 		{#key info?.description}
 			<p in:fade={{ duration: 1000 }}>
 				{@html info
@@ -49,4 +50,4 @@
 			> website. Click the "Roll" button and learn something new!
 		</p>
 	</section>
-</SandboxArea>
+</SandboxAreaPage>

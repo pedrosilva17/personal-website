@@ -1,8 +1,9 @@
 <script lang="ts">
+	import MainHeading from '$lib/layout/MainHeading.svelte';
 	import Page from '$lib/layout/Page.svelte';
 </script>
 
 <Page title="Error">
-	<h1 class="text-6xl md:text-8xl">Where are you going?</h1>
+	<MainHeading>Where are you going?</MainHeading>
 	<p>Hmmm, there's not supposed to be a page here. You should go back!</p>
 </Page>

@@ -2,10 +2,11 @@
 	import Page from '$lib/layout/Page.svelte';
 	import { Canvas } from '@threlte/core';
 	import Background3D from '$lib/3d/Background3D.svelte';
+	import MainHeading from '$lib/layout/MainHeading.svelte';
 </script>
 
 <Page title="Home">
-	<h1 class="text-6xl md:text-8xl">Pedro Silva</h1>
+	<MainHeading>Pedro Silva</MainHeading>
 	<div class="gap-2 italic">
 		<p>Highly curious individual and passionate developer, lover of all things internet.</p>
 		<p class="font-bold">Welcome to my virtual home!</p>

@@ -1,9 +1,10 @@
 <script lang="ts">
+	import MainHeading from '$lib/layout/MainHeading.svelte';
 	import Page from '$lib/layout/Page.svelte';
 </script>
 
 <Page title="Sandbox">
-	<h1 class="text-6xl md:text-8xl">Sandbox</h1>
+	<MainHeading>Sandbox</MainHeading>
 	<p>Random tools and playthings.</p>
 	<div class="flex flex-wrap justify-center">
 		<a

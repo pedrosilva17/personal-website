@@ -5,10 +5,11 @@
 	import ModelWrapper from '$lib/3d/ModelWrapper.svelte';
 	import Computer from '$lib/3d/Computer.svelte';
 	import NintendoSwitch from '$lib/3d/NintendoSwitch.svelte';
+	import MainHeading from '$lib/layout/MainHeading.svelte';
 </script>
 
 <Page title="About me">
-	<h1 class="text-6xl lg:text-8xl">About me</h1>
+	<MainHeading>About me</MainHeading>
 	<p>
 		Here's some information about me you <span class="italic">surely</span> want to know.
 		<span class="text-xs">(not)</span>
