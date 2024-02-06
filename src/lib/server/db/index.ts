@@ -2,7 +2,7 @@ import Database from 'better-sqlite3';
 import { DB_PATH } from '$env/static/private';
 import type { NumberInfo, Project, ProjectTag } from './types.ts';
 
-const db = new Database(DB_PATH, { verbose: console.log });
+const db = new Database(DB_PATH);
 
 export function getRandomNumber(): NumberInfo {
 	const query = 'SELECT * FROM Numbers ORDER BY RANDOM() LIMIT 1;';
@@ -32,6 +32,5 @@ export function getProjects(): Project[] {
 			};
 		}
 	}
-	console.log(Object.values(projects));
 	return Object.values(projects) as Project[];
 }
