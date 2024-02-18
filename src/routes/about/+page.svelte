@@ -75,8 +75,10 @@
 						>Serralves</a
 					>
 					on their free sundays (every <span class="text-secondary">first sunday</span> of each
-					month) whenever I can, and enjoy playing videogames/board games of various genres. Not an
-					avid listener of <span class="text-secondary">music</span>, but
+					month) whenever I can, and enjoy playing videogames/board games of various genres.
+					Whenever I listen to <span class="text-secondary">music</span>, two of my favourite
+					<span class="text-secondary">artists</span>
+					are
 					<a
 						target="_blank"
 						href="https://open.spotify.com/artist/4LOV7E9ZHPnxIDeFWtA6N9"
@@ -87,12 +89,11 @@
 						target="_blank"
 						href="https://open.spotify.com/artist/3qiHUAX7zY4Qnjx8TNUzVx"
 						class="text-secondary underline">Yeat</a
-					>
-					are two of my go-tos when it comes to that. I casually watch
+					>. I casually watch
 					<span class="text-secondary">movies</span>
 					and <span class="text-secondary"> TV series</span> and especially love those with a good
-					<span>story</span>
-					and <span>unpredictable</span> twists and turns:
+					<span class="text-secondary">story</span>
+					and unpredictable <span class="text-secondary">twists</span> and turns:
 					<a
 						target="_blank"
 						href="https://www.imdb.com/title/tt1130884/"
