@@ -4,7 +4,7 @@
 
 	export let project: Project;
 
-	let path = `/src/lib/assets/projects/${project.title.toLowerCase().split(' ').join('-')}.png`;
+	let path = `assets/images/projects/${project.title.toLowerCase().split(' ').join('-')}.png`;
 </script>
 
 <a href={project.link} target="_blank" class="flex w-full md:w-96 card shine shadow-lg">

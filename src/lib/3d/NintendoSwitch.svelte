@@ -14,7 +14,7 @@ Title: Nintendo Switch
 
 	export const ref = new Group();
 
-	const gltf = useGltf('src/lib/3d/models/nintendo-switch-transformed.glb', { useDraco: true });
+	const gltf = useGltf('assets/models/nintendo-switch-transformed.glb', { useDraco: true });
 
 	const component = forwardEventHandlers();
 </script>

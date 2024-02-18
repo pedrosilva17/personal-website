@@ -15,7 +15,7 @@
 		<span class="text-xs">(not)</span>
 	</p>
 	<a
-		href="/src/lib/assets/pedro-silva-cv.pdf"
+		href="assets/pedro-silva-cv.pdf"
 		class="flex mb-10 w-fit px-5 m-auto btn btn-secondary text-primary"
 		download>Download CV <Document size="20" /></a
 	>

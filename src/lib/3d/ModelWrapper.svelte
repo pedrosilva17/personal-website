@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { T, useTask } from '@threlte/core';
 	import { OrbitControls, interactivity } from '@threlte/extras';
-	import { AmbientLight } from 'three';
 
 	interactivity();
 	let rotation = 0;
