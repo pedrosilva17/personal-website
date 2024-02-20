@@ -14,7 +14,7 @@ Title: Mario Question Block
 
 	export const ref = new Group();
 
-	const gltf = useGltf('assets/models/question-block-transformed.glb', { useDraco: true });
+	const gltf = useGltf('/assets/models/question-block-transformed.glb', { useDraco: true });
 
 	const component = forwardEventHandlers();
 </script>

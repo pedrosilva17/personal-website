@@ -15,7 +15,7 @@ Title: RM Machines C-Series Computer | READ DESC
 
 	export const ref = new Group();
 
-	const gltf = useGltf('assets/models/computer-transformed.glb', { useDraco: true });
+	const gltf = useGltf('/assets/models/computer-transformed.glb', { useDraco: true });
 
 	const component = forwardEventHandlers();
 </script>
