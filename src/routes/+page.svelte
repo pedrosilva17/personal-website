@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Page from '$lib/layout/Page.svelte';
 	import { Canvas } from '@threlte/core';
-	import Background3D from '$lib/3d/Background3D.svelte';
+	import BackgroundScene from '$lib/3d/BackgroundScene.svelte';
 	import MainHeading from '$lib/layout/MainHeading.svelte';
 </script>
 
@@ -13,7 +13,7 @@
 	</div>
 	<div class="absolute blur-sm left-0 w-full h-2/3 opacity-25">
 		<Canvas>
-			<Background3D />
+			<BackgroundScene />
 		</Canvas>
 	</div>
 </Page>

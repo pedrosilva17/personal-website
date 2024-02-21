@@ -17,17 +17,17 @@
 	}
 </script>
 
-<Page title="sandbox/{title}">
+<Page title="sandbox/{title}" class={$$props.class ?? ''}>
 	<a
 		href="/sandbox"
 		aria-label="Return"
-		class="absolute top-0 left-0 btn btn-circle btn-secondary text-primary m-5"
+		class="absolute top-0 left-0 btn btn-circle btn-secondary text-primary m-5 z-10"
 		><ArrowBack tabindex="-1" class="outline-none" /></a
 	>
 	<button
 		on:click={toggleModal}
 		aria-label="Information"
-		class="absolute top-0 right-0 btn btn-circle btn-secondary text-primary m-5"
+		class="absolute top-0 right-0 btn btn-circle btn-secondary text-primary m-5 z-10"
 		><Information tabindex="-1" class="outline-none" /></button
 	>
 	<dialog id="help_modal" tabindex="-1" class="invisible modal m-auto gap-5">
