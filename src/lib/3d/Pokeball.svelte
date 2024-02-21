@@ -8,33 +8,37 @@ Title: Pokeball
 -->
 
 <script lang="ts">
-  import { Group } from 'three'
-  import { T, forwardEventHandlers } from '@threlte/core'
-  import { useGltf } from '@threlte/extras'
+	import { Group } from 'three';
+	import { T, forwardEventHandlers } from '@threlte/core';
+	import { useGltf } from '@threlte/extras';
 
-  export const ref = new Group()
+	export const ref = new Group();
 
-  const gltf = useGltf('/assets/models/pokeball-transformed.glb', { useDraco: true })
+	const gltf = useGltf('/assets/models/pokeball-transformed.glb', { useDraco: true });
 
-  const component = forwardEventHandlers()
-  export let hex: string;
+	const component = forwardEventHandlers();
+	export let hex: string;
 </script>
 
 <T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
-  {#await gltf}
-    <slot name="fallback" />
-  {:then gltf}
-    {console.log(hex)}
-    <T.Group scale={0.01}>
-      <T.Group rotation={[-Math.PI / 2, 0, 0]} scale={166.41}>
-        <T.Mesh geometry={gltf.nodes.Sphere005_2_0.geometry} material={gltf.materials.material} />
-        <T.Mesh geometry={gltf.nodes.Sphere005_1_0.geometry} material={gltf.materials.material_1} />
-        <T.Mesh geometry={gltf.nodes.Sphere005_3_0.geometry} material={gltf.materials.material_2} material.color={hex}/>
-      </T.Group>
-    </T.Group>
-  {:catch error}
-    <slot name="error" {error} />
-  {/await}
+	{#await gltf}
+		<slot name="fallback" />
+	{:then gltf}
+		{console.log(hex)}
+		<T.Group scale={0.01}>
+			<T.Group rotation={[-Math.PI / 2, 0, 0]} scale={166.41}>
+				<T.Mesh geometry={gltf.nodes.Sphere005_2_0.geometry} material={gltf.materials.material} />
+				<T.Mesh geometry={gltf.nodes.Sphere005_1_0.geometry} material={gltf.materials.material_1} />
+				<T.Mesh
+					geometry={gltf.nodes.Sphere005_3_0.geometry}
+					material={gltf.materials.material_2}
+					material.color={hex}
+				/>
+			</T.Group>
+		</T.Group>
+	{:catch error}
+		<slot name="error" {error} />
+	{/await}
 
-  <slot {ref} />
+	<slot {ref} />
 </T>

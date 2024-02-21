@@ -9,11 +9,14 @@
 	import { writable } from 'svelte/store';
 	import Pokeball from './Pokeball.svelte';
 	import { Clock } from 'three';
+	import RangeInput from '$lib/common/RangeInput.svelte';
+	import ColorInput from '$lib/common/ColorInput.svelte';
+	import CheckboxInput from '$lib/common/CheckboxInput.svelte';
 
 	let clock = new Clock();
 
 	function setPosition() {
-		sinePos.set(3 + Math.sin(clock.getElapsedTime() * 3) * 3);
+		sinPos.set(3 + Math.sin(clock.getElapsedTime() * 3) * 3);
 	}
 
 	function toggleFocusable() {
@@ -31,11 +34,11 @@
 	}
 
 	let isMoving = writable(false);
-	let sinePos = writable(0);
-    let scale = writable(1.05);
-    let ambIntensity = writable(1);
+	let sinPos = writable(0);
+	let scale = writable(1);
+	let ambIntensity = writable(1);
 	let dirIntensity = writable(1);
-	let hex = writable("#ff0000");
+	let hex = writable('#ff0000');
 	setInterval(setPosition, 10);
 </script>
 
@@ -54,76 +57,47 @@
 	</T.PerspectiveCamera>
 
 	<T.Mesh position={[0, -2, 0]}>
-		<T.Mesh position={[0, $isMoving ? $sinePos : 3, 0]} scale={$scale}>
+		<T.Mesh position={[0, $isMoving ? $sinPos : 3, 0]} scale={$scale}>
 			<TransformControls scale={$scale}>
-				<Pokeball rotation.y={-Math.PI / 2} hex={$hex.slice(0, 7)}/>
+				<Pokeball rotation.y={-Math.PI / 2} hex={$hex.slice(0, 7)} />
 			</TransformControls>
 			<T.MeshStandardMaterial />
 		</T.Mesh>
 		<T.GridHelper />
 	</T.Mesh>
 </Canvas>
+
 <div
-	class="collapse collapse-arrow absolute mx-auto top-0 right-0 max-md:left-0 md:mt-20 w-48 md:w-64 bg-secondary text-primary rounded-xl text-left break-words"
+	class="collapse collapse-arrow absolute mx-auto top-0 right-0 max-md:left-0 md:mt-20 w-36 md:w-64 bg-secondary text-primary rounded-xl text-left break-words"
 >
-	<input on:click={toggleFocusable} type="checkbox" class="focus:ring-1 focus:ring-secondary"/>
-	<h1 class="collapse-title text-base md:text-2xl text-center font-bold">Controls</h1>
+	<input on:click={toggleFocusable} type="checkbox" class="focus:ring-1 focus:ring-secondary" />
+	<label for="controls" class="collapse-title text-base md:text-2xl text-center font-bold">Controls</label>
 	<div id="main-collapse-content" class="collapse-content p-0 text-sm md:text-base font-semibold">
 		<div class="collapse collapse-arrow p-0">
-			<label for="model" class="collapse-title md:text-xl">Model</label>
-			<input tabindex="-1" name="opt" type="checkbox" />
-			<div class="flex flex-col collapse-content gap-5">
-				<span class="flex flex-col gap-2">
-					<label for="scale">Scale</label>
-					<input bind:value={$scale} type="range" min="0.1" max="2.0" step="0.01" class="range range-primary w-full" />
-					<div class="w-full flex justify-between text-xs">
-						<span>0.1</span>
-						<span>|</span>
-						<span>1.0</span>
-						<span>|</span>
-						<span>2.0</span>
-					</div>
-				</span>
-				<span class="flex flex-col gap-2">
-					<label for="top color">Top Color</label>
-					<input type="color" bind:value={$hex}/>
-				</span>
-			</div>
-		</div>
-		<div class="collapse collapse-arrow">
-			<label for="light" class="collapse-title md:text-xl">Light</label>
-			<input tabindex="-1" name="opt" type="checkbox" />
+			<input tabindex="-1" name="model" type="checkbox" />
+			<label for="model" class="collapse-title md:text-xl flex w-full p-auto">Model</label>
 			<div class="collapse-content flex flex-col gap-5">
-				<span class="flex flex-col gap-2">
-					<label for="ambient intensity">Ambient Intensity</label>
-					<input bind:value={$ambIntensity} type="range" min="0.1" max="2.0" step="0.01" class="range range-primary w-full" />
-					<div class="w-full flex justify-between text-xs">
-						<span>0.1</span>
-						<span>|</span>
-						<span>1.0</span>
-						<span>|</span>
-						<span>2.0</span>
-					</div>
-				</span>
-				<span class="flex flex-col gap-2">
-					<label for="directional intensity">Directional Intensity</label>
-					<input bind:value={$dirIntensity} type="range" min="0.1" max="2.0" step="0.01" class="range range-primary w-full" />
-					<div class="text-primary w-full flex justify-between text-xs">
-						<span>0.1</span>
-						<span>|</span>
-						<span>1.0</span>
-						<span>|</span>
-						<span>2.0</span>
-					</div>
-				</span>
+				<RangeInput label="Scale" range={[0.0, 1.0, 2.0, 0.01]} bind={scale} />
+				<ColorInput label="Top Color" bind={hex} />
 			</div>
 		</div>
 		<div class="collapse collapse-arrow">
+			<input tabindex="-1" name="light" type="checkbox" />
+			<label for="light" class="collapse-title md:text-xl">Light</label>
+			<div class="collapse-content flex flex-col gap-5">
+				<RangeInput label="Ambient Intensity" range={[0.0, 1.0, 2.0, 0.01]} bind={ambIntensity} />
+				<RangeInput
+					label="Directional Intensity"
+					range={[0.0, 1.0, 2.0, 0.01]}
+					bind={dirIntensity}
+				/>
+			</div>
+		</div>
+		<div class="collapse collapse-arrow">
+			<input tabindex="-1" name="motion" type="checkbox" />
 			<label for="motion" class="collapse-title md:text-xl">Motion</label>
-			<input tabindex="-1" name="opt" type="checkbox" />
 			<div class="collapse-content">
-				<label for="Wave Motion">Wave Motion</label>
-				<input type="checkbox" bind:checked={$isMoving}/>
+				<CheckboxInput label="Wave Motion" bind={isMoving} />
 			</div>
 		</div>
 	</div>
