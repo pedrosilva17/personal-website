@@ -24,7 +24,6 @@ Title: Pokeball
 	{#await gltf}
 		<slot name="fallback" />
 	{:then gltf}
-		{console.log(hex)}
 		<T.Group scale={0.01}>
 			<T.Group rotation={[-Math.PI / 2, 0, 0]} scale={166.41}>
 				<T.Mesh geometry={gltf.nodes.Sphere005_2_0.geometry} material={gltf.materials.material} />

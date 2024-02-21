@@ -36,6 +36,7 @@
 	let isMoving = writable(false);
 	let sinPos = writable(0);
 	let scale = writable(1);
+	let rotationY = writable(0);
 	let ambIntensity = writable(1);
 	let dirIntensity = writable(1);
 	let hex = writable('#ff0000');
@@ -57,9 +58,9 @@
 	</T.PerspectiveCamera>
 
 	<T.Mesh position={[0, -2, 0]}>
-		<T.Mesh position={[0, $isMoving ? $sinPos : 3, 0]} scale={$scale}>
-			<TransformControls scale={$scale}>
-				<Pokeball rotation.y={-Math.PI / 2} hex={$hex.slice(0, 7)} />
+		<T.Mesh position={[0, $isMoving ? $sinPos : 3, 0]} rotation.y={-Math.PI / 2}>
+			<TransformControls>
+				<Pokeball rotation.y={$rotationY} scale={$scale} hex={$hex.slice(0, 7)} />
 			</TransformControls>
 			<T.MeshStandardMaterial />
 		</T.Mesh>
@@ -71,13 +72,21 @@
 	class="collapse collapse-arrow absolute mx-auto top-0 right-0 max-md:left-0 md:mt-20 w-36 md:w-64 bg-secondary text-primary rounded-xl text-left break-words"
 >
 	<input on:click={toggleFocusable} type="checkbox" class="focus:ring-1 focus:ring-secondary" />
-	<label for="controls" class="collapse-title text-base md:text-2xl text-center font-bold">Controls</label>
+	<label for="controls" class="collapse-title text-base md:text-2xl text-center font-bold"
+		>Controls</label
+	>
 	<div id="main-collapse-content" class="collapse-content p-0 text-sm md:text-base font-semibold">
 		<div class="collapse collapse-arrow p-0">
 			<input tabindex="-1" name="model" type="checkbox" />
 			<label for="model" class="collapse-title md:text-xl flex w-full p-auto">Model</label>
 			<div class="collapse-content flex flex-col gap-5">
 				<RangeInput label="Scale" range={[0.0, 1.0, 2.0, 0.01]} bind={scale} />
+				<RangeInput
+					label="Rotation (Y axis)"
+					range={[0.0, Math.PI, 2 * Math.PI, 0.01]}
+					scaleValues={['0.0', '180.0', '360.0']}
+					bind={rotationY}
+				/>
 				<ColorInput label="Top Color" bind={hex} />
 			</div>
 		</div>
