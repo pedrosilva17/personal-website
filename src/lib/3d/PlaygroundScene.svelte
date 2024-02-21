@@ -12,12 +12,12 @@
 	import RangeInput from '$lib/common/RangeInput.svelte';
 	import ColorInput from '$lib/common/ColorInput.svelte';
 	import CheckboxInput from '$lib/common/CheckboxInput.svelte';
+	import { tweened } from 'svelte/motion';
+	import { cubicOut } from 'svelte/easing';
 
-	let clock = new Clock();
-
-	function setPosition() {
-		sinPos.set(3 + Math.sin(clock.getElapsedTime() * 3) * 3);
-	}
+	const clock = new Clock();
+	const duration = (a: number, b: number) => Math.abs(a - b) * 1000;
+	const setPosition = () => sinPos.set(3 + Math.sin(clock.getElapsedTime() * 3) * 3);
 
 	function toggleFocusable() {
 		const subCollapseList = document
@@ -37,6 +37,11 @@
 	let sinPos = writable(0);
 	let scale = writable(1);
 	let rotationY = writable(0);
+	let toggleParts = 0;
+	let positionY = tweened(0, {
+		duration: duration,
+		easing: cubicOut
+	});
 	let ambIntensity = writable(1);
 	let dirIntensity = writable(1);
 	let hex = writable('#ff0000');
@@ -57,10 +62,15 @@
 		<OrbitControls />
 	</T.PerspectiveCamera>
 
-	<T.Mesh position={[0, -2, 0]}>
-		<T.Mesh position={[0, $isMoving ? $sinPos : 3, 0]} rotation.y={-Math.PI / 2}>
+	<T.Mesh position.y={-4}>
+		<T.Mesh position.y={$isMoving ? $sinPos : 4} rotation.y={-Math.PI / 2}>
 			<TransformControls>
-				<Pokeball rotation.y={$rotationY} scale={$scale} hex={$hex.slice(0, 7)} />
+				<Pokeball
+					rotation.y={$rotationY}
+					scale={$scale}
+					hex={$hex.slice(0, 7)}
+					partsY={positionY}
+				/>
 			</TransformControls>
 			<T.MeshStandardMaterial />
 		</T.Mesh>
@@ -88,6 +98,15 @@
 					bind={rotationY}
 				/>
 				<ColorInput label="Top Color" bind={hex} />
+				<!-- $positionY ^= 1 doesn't produce the same behaviour because of tweening -->
+				<button
+					on:click={() => {
+						(toggleParts ^= 1), ($positionY = toggleParts);
+					}}
+					class="btn btn-primary bg-primary-variant text-white px-0"
+				>
+					Toggle disassembly
+				</button>
 			</div>
 		</div>
 		<div class="collapse collapse-arrow">
