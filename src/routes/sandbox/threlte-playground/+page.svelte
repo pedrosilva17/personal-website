@@ -1,7 +1,5 @@
 <script lang="ts">
 	import SandboxAreaPage from '$lib/layout/SandboxAreaPage.svelte';
-	import MainHeading from '$lib/layout/MainHeading.svelte';
-	import { T, Canvas } from '@threlte/core';
 	import PlaygroundScene from '$lib/3d/PlaygroundScene.svelte';
 </script>
 
@@ -14,7 +12,9 @@
 	<section slot="modal">
 		<h2 class="font-bold text-lg m-auto">What is this?</h2>
 		<p class="py-5">
-			TODO: Type a proper description for this page
+			This is a 3D scene where you can play around with a Pokéball model by changing its color,
+			rotation, position, size, animating it, making the scene brighter, and so on, nothing too
+			fancy. Have fun!
 		</p>
 	</section>
 </SandboxAreaPage>
