@@ -33,18 +33,20 @@
 		console.log($scale);
 	}
 
+	let toggleParts = 0;
 	let isMoving = writable(false);
 	let sinPos = writable(0);
 	let scale = writable(1);
 	let rotationY = writable(0);
-	let toggleParts = 0;
 	let positionY = tweened(0, {
 		duration: duration,
 		easing: cubicOut
 	});
 	let ambIntensity = writable(1);
 	let dirIntensity = writable(1);
-	let hex = writable('#ff0000');
+	let topColor = writable('#ff0000');
+	let midColor = writable('#000000');
+	let botColor = writable('#ffffff');
 	setInterval(setPosition, 10);
 </script>
 
@@ -65,10 +67,13 @@
 	<T.Mesh position.y={-4}>
 		<T.Mesh position.y={$isMoving ? $sinPos : 4} rotation.y={-Math.PI / 2}>
 			<TransformControls>
+				<!-- No semitransparent colors - model doesn't like that -->
 				<Pokeball
 					rotation.y={$rotationY}
 					scale={$scale}
-					hex={$hex.slice(0, 7)}
+					topColor={$topColor.slice(0, 7)}
+					midColor={$midColor.slice(0, 7)}
+					botColor={$botColor.slice(0, 7)}
 					partsY={positionY}
 				/>
 			</TransformControls>
@@ -97,7 +102,9 @@
 					scaleValues={['0.0', '180.0', '360.0']}
 					bind={rotationY}
 				/>
-				<ColorInput label="Top Color" bind={hex} />
+				<ColorInput label="Top Color" bind={topColor} />
+				<ColorInput label="Mid Color" bind={midColor} />
+				<ColorInput label="Bottom Color" bind={botColor} />
 				<!-- $positionY ^= 1 doesn't produce the same behaviour because of tweening -->
 				<button
 					on:click={() => {
@@ -130,3 +137,23 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.collapse {
+		scrollbar-color: theme('colors.primary') theme('colors.secondary');
+	}
+
+	.collapse::-webkit-scrollbar-track {
+		background: theme('colors.secondary');
+	}
+
+	.collapse::-webkit-scrollbar-thumb {
+		background: theme('colors.secondary');
+		border-radius: 100vh;
+		border: 1px solid theme('colors.primary');
+	}
+
+	.collapse::-webkit-scrollbar-thumb:hover {
+		background: theme('colors.secondary');
+	}
+</style>

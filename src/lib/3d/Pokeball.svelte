@@ -18,7 +18,7 @@ Title: Pokeball
 	const gltf = useGltf('/assets/models/pokeball-transformed.glb', { useDraco: true });
 
 	const component = forwardEventHandlers();
-	export let hex: string, partsY: Tweened<0>;
+	export let topColor: string, midColor: string, botColor: string, partsY: Tweened<0>;
 </script>
 
 <T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
@@ -27,16 +27,21 @@ Title: Pokeball
 	{:then gltf}
 		<T.Group scale={0.01}>
 			<T.Group rotation={[-Math.PI / 2, 0, 0]} scale={166.41}>
-				<T.Mesh geometry={gltf.nodes.Sphere005_2_0.geometry} material={gltf.materials.material} />
+				<T.Mesh
+					geometry={gltf.nodes.Sphere005_2_0.geometry}
+					material={gltf.materials.material}
+					material.color={midColor}
+				/>
 				<T.Mesh
 					geometry={gltf.nodes.Sphere005_1_0.geometry}
 					material={gltf.materials.material_1}
+					material.color={botColor}
 					position.z={-$partsY}
 				/>
 				<T.Mesh
 					geometry={gltf.nodes.Sphere005_3_0.geometry}
 					material={gltf.materials.material_2}
-					material.color={hex}
+					material.color={topColor}
 					position.z={$partsY}
 				/>
 			</T.Group>
