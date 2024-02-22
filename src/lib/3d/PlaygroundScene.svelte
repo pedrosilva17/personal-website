@@ -14,24 +14,12 @@
 	import CheckboxInput from '$lib/common/CheckboxInput.svelte';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
+	import SceneGui from './SceneGui.svelte';
+	import GuiFolder from './GuiFolder.svelte';
 
 	const clock = new Clock();
 	const duration = (a: number, b: number) => Math.abs(a - b) * 1000;
 	const setPosition = () => sinPos.set(3 + Math.sin(clock.getElapsedTime() * 3) * 3);
-
-	function toggleFocusable() {
-		const subCollapseList = document
-			.getElementById('main-collapse-content')
-			?.getElementsByTagName('input');
-		if (!subCollapseList) return;
-		for (const collapse of subCollapseList) {
-			console.log(collapse.getAttribute('tabindex'));
-			const newValue = collapse.getAttribute('tabindex') === ('0' || null) ? '-1' : '0';
-			collapse.setAttribute('tabindex', newValue);
-			console.log(newValue);
-		}
-		console.log($scale);
-	}
 
 	let toggleParts = 0;
 	let isMoving = writable(false);
@@ -83,18 +71,10 @@
 	</T.Mesh>
 </Canvas>
 
-<div
-	class="collapse collapse-arrow absolute mx-auto top-0 right-0 max-md:left-0 md:mt-20 w-36 md:w-64 bg-secondary text-primary rounded-xl text-left break-words"
->
-	<input on:click={toggleFocusable} type="checkbox" class="focus:ring-1 focus:ring-secondary" />
-	<label for="controls" class="collapse-title text-base md:text-2xl text-center font-bold"
-		>Controls</label
-	>
-	<div id="main-collapse-content" class="collapse-content p-0 text-sm md:text-base font-semibold">
-		<div class="collapse collapse-arrow p-0">
-			<input tabindex="-1" name="model" type="checkbox" />
-			<label for="model" class="collapse-title md:text-xl flex w-full p-auto">Model</label>
-			<div class="collapse-content flex flex-col gap-5">
+<SceneGui title="Controls">
+	<svelte:fragment slot="folders">
+		<GuiFolder title="Model">
+			<svelte:fragment slot="content">
 				<RangeInput label="Scale" range={[0.0, 1.0, 2.0, 0.01]} bind={scale} />
 				<RangeInput
 					label="Rotation (Y axis)"
@@ -114,46 +94,22 @@
 				>
 					Toggle disassembly
 				</button>
-			</div>
-		</div>
-		<div class="collapse collapse-arrow">
-			<input tabindex="-1" name="light" type="checkbox" />
-			<label for="light" class="collapse-title md:text-xl">Light</label>
-			<div class="collapse-content flex flex-col gap-5">
+			</svelte:fragment>
+		</GuiFolder>
+		<GuiFolder title="Light">
+			<svelte:fragment slot="content">
 				<RangeInput label="Ambient Intensity" range={[0.0, 1.0, 2.0, 0.01]} bind={ambIntensity} />
 				<RangeInput
 					label="Directional Intensity"
 					range={[0.0, 1.0, 2.0, 0.01]}
 					bind={dirIntensity}
 				/>
-			</div>
-		</div>
-		<div class="collapse collapse-arrow">
-			<input tabindex="-1" name="motion" type="checkbox" />
-			<label for="motion" class="collapse-title md:text-xl">Motion</label>
-			<div class="collapse-content">
-				<CheckboxInput label="Wave Motion" bind={isMoving} />
-			</div>
-		</div>
-	</div>
-</div>
-
-<style>
-	.collapse {
-		scrollbar-color: theme('colors.primary') theme('colors.secondary');
-	}
-
-	.collapse::-webkit-scrollbar-track {
-		background: theme('colors.secondary');
-	}
-
-	.collapse::-webkit-scrollbar-thumb {
-		background: theme('colors.secondary');
-		border-radius: 100vh;
-		border: 1px solid theme('colors.primary');
-	}
-
-	.collapse::-webkit-scrollbar-thumb:hover {
-		background: theme('colors.secondary');
-	}
-</style>
+			</svelte:fragment>
+		</GuiFolder>
+		<GuiFolder title="Animation">
+			<svelte:fragment slot="content">
+				<CheckboxInput label="Wave Animation" bind={isMoving} />
+			</svelte:fragment>
+		</GuiFolder>
+	</svelte:fragment>
+</SceneGui>
