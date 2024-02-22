@@ -1,9 +1,4 @@
 <script lang="ts">
-	/*TODO: 
-	- Create components for common GUI inputs/controls
-	- Style checkboxes with @tailwind/forms and daisyUI
-	- See what else can be added
-	*/
 	import { T, Canvas } from '@threlte/core';
 	import { OrbitControls, TransformControls } from '@threlte/extras';
 	import { writable } from 'svelte/store';
@@ -11,19 +6,21 @@
 	import { Clock } from 'three';
 	import RangeInput from '$lib/common/RangeInput.svelte';
 	import ColorInput from '$lib/common/ColorInput.svelte';
-	import CheckboxInput from '$lib/common/CheckboxInput.svelte';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import SceneGui from './SceneGui.svelte';
 	import GuiFolder from './GuiFolder.svelte';
 
-	const clock = new Clock();
-	const duration = (a: number, b: number) => Math.abs(a - b) * 1000;
-	const setPosition = () => sinPos.set(3 + Math.sin(clock.getElapsedTime() * 3) * 3);
-
+	let clock = new Clock();
 	let toggleParts = 0;
-	let isMoving = writable(false);
-	let sinPos = writable(0);
+	let activeWave = 0;
+	let sinPos = 0;
+
+	const duration = (a: number, b: number) => Math.abs(a - b) * 1000;
+	const setPosition = () => {
+		sinPos = 4 + Math.sin(clock.getElapsedTime() * 3) * 3;
+	};
+
 	let scale = writable(1);
 	let rotationY = writable(0);
 	let positionY = tweened(0, {
@@ -53,7 +50,7 @@
 	</T.PerspectiveCamera>
 
 	<T.Mesh position.y={-4}>
-		<T.Mesh position.y={$isMoving ? $sinPos : 4} rotation.y={-Math.PI / 2}>
+		<T.Mesh position.y={activeWave ? sinPos : 4} rotation.y={-Math.PI / 2}>
 			<TransformControls>
 				<!-- No semitransparent colors - model doesn't like that -->
 				<Pokeball
@@ -108,7 +105,14 @@
 		</GuiFolder>
 		<GuiFolder title="Animation">
 			<svelte:fragment slot="content">
-				<CheckboxInput label="Wave Animation" bind={isMoving} />
+				<button
+					on:click={() => {
+						clock.start(), (activeWave ^= 1);
+					}}
+					class="btn btn-primary bg-primary-variant text-white px-0"
+				>
+					Toggle wave animation
+				</button>
 			</svelte:fragment>
 		</GuiFolder>
 	</svelte:fragment>
