@@ -1,15 +1,22 @@
 <script lang="ts">
 	import { T, Canvas } from '@threlte/core';
 	import { OrbitControls, TransformControls } from '@threlte/extras';
-	import { writable } from 'svelte/store';
 	import Pokeball from './Pokeball.svelte';
 	import { Clock } from 'three';
 	import RangeInput from '$lib/common/RangeInput.svelte';
 	import ColorInput from '$lib/common/ColorInput.svelte';
-	import { tweened } from 'svelte/motion';
-	import { cubicOut } from 'svelte/easing';
 	import SceneGui from './SceneGui.svelte';
 	import GuiFolder from './GuiFolder.svelte';
+	import {
+		scaling,
+		dirIntensity,
+		ambIntensity,
+		rotationY,
+		topColor,
+		midColor,
+		botColor,
+		positionY,
+	} from './stores';
 
 	let clock = new Clock();
 	let toggleParts = 0;
@@ -17,22 +24,10 @@
 	let activeWave = 0;
 	let sinPos = 0;
 
-	const duration = (a: number, b: number) => Math.abs(a - b) * 1000;
 	const setPosition = () => {
 		sinPos = 4 + Math.sin(clock.getElapsedTime() * 3) * 3;
 	};
 
-	let scale = writable(1);
-	let rotationY = writable(0);
-	let positionY = tweened(0, {
-		duration: duration,
-		easing: cubicOut
-	});
-	let ambIntensity = writable(1);
-	let dirIntensity = writable(1);
-	let topColor = writable('#ff0000');
-	let midColor = writable('#000000');
-	let botColor = writable('#ffffff');
 	setInterval(setPosition, 10);
 </script>
 
@@ -56,7 +51,7 @@
 				<!-- No semitransparent colors - model doesn't like that -->
 				<Pokeball
 					rotation.y={$rotationY}
-					scale={$scale}
+					scale={$scaling}
 					topColor={$topColor.slice(0, 7)}
 					midColor={$midColor.slice(0, 7)}
 					botColor={$botColor.slice(0, 7)}
@@ -73,7 +68,7 @@
 	<svelte:fragment slot="folders">
 		<GuiFolder title="Model">
 			<svelte:fragment slot="content">
-				<RangeInput label="Scale" range={[0.0, 1.0, 2.0, 0.01]} bind={scale} />
+				<RangeInput label="Scale" range={[0.0, 1.0, 2.0, 0.01]} bind={scaling} />
 				<RangeInput
 					label="Rotation (Y axis)"
 					range={[0.0, Math.PI, 2 * Math.PI, 0.01]}
@@ -87,9 +82,13 @@
 		</GuiFolder>
 		<GuiFolder title="Light">
 			<svelte:fragment slot="content">
-				<RangeInput label="Ambient Intensity" range={[0.0, 1.0, 2.0, 0.01]} bind={ambIntensity} />
 				<RangeInput
-					label="Directional Intensity"
+					label="Ambient light intensity"
+					range={[0.0, 1.0, 2.0, 0.01]}
+					bind={ambIntensity}
+				/>
+				<RangeInput
+					label="Directional light intensity"
 					range={[0.0, 1.0, 2.0, 0.01]}
 					bind={dirIntensity}
 				/>

@@ -2,7 +2,7 @@
 	function toggleFocusable() {
 		const subCollapseList = document
 			.getElementById('main-collapse-content')
-			?.querySelectorAll(('input,button'));
+			?.querySelectorAll('input,button');
 		if (!subCollapseList) return;
 		for (const collapse of subCollapseList) {
 			console.log(collapse.getAttribute('tabindex'));
