@@ -82,15 +82,6 @@
 				<ColorInput label="Top Color" bind={topColor} />
 				<ColorInput label="Mid Color" bind={midColor} />
 				<ColorInput label="Bottom Color" bind={botColor} />
-				<!-- $positionY ^= 1 doesn't produce the same behaviour because of tweening -->
-				<button
-					on:click={() => {
-						(toggleParts ^= 1), ($positionY = toggleParts);
-					}}
-					class="btn btn-primary bg-primary-variant text-white px-0"
-				>
-					Toggle disassembly
-				</button>
 			</svelte:fragment>
 		</GuiFolder>
 		<GuiFolder title="Light">
@@ -112,6 +103,15 @@
 					class="btn btn-primary bg-primary-variant text-white px-0"
 				>
 					Toggle wave animation
+				</button>
+				<!-- $positionY ^= 1 doesn't produce the same behaviour because of tweening -->
+				<button
+					on:click={() => {
+						(toggleParts ^= 1), ($positionY = toggleParts);
+					}}
+					class="btn btn-primary bg-primary-variant text-white px-0"
+				>
+					Toggle disassembly
 				</button>
 			</svelte:fragment>
 		</GuiFolder>
