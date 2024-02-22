@@ -13,6 +13,7 @@
 
 	let clock = new Clock();
 	let toggleParts = 0;
+	let visibleTranslationControls = 1;
 	let activeWave = 0;
 	let sinPos = 0;
 
@@ -51,7 +52,7 @@
 
 	<T.Mesh position.y={-4}>
 		<T.Mesh position.y={activeWave ? sinPos : 4} rotation.y={-Math.PI / 2}>
-			<TransformControls>
+			<TransformControls visible={Boolean(visibleTranslationControls)}>
 				<!-- No semitransparent colors - model doesn't like that -->
 				<Pokeball
 					rotation.y={$rotationY}
@@ -112,6 +113,18 @@
 					class="btn btn-primary bg-primary-variant text-white px-0"
 				>
 					Toggle disassembly
+				</button>
+			</svelte:fragment>
+		</GuiFolder>
+		<GuiFolder title="Misc">
+			<svelte:fragment slot="content">
+				<button
+					on:click={() => {
+						visibleTranslationControls ^= 1;
+					}}
+					class="btn btn-primary bg-primary-variant text-white px-0"
+				>
+					Toggle axis visibility
 				</button>
 			</svelte:fragment>
 		</GuiFolder>
