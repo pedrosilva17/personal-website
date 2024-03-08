@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  personal-website:
+    container_name: personal-website
+    image: personal-website
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
+    restart: unless-stopped
+    ports:
+      - 3000:3000
