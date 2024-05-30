@@ -6,8 +6,8 @@
 </script>
 
 <Page title="Home">
-	<MainHeading>Pedro Silva</MainHeading>
-	<div class="gap-2 italic">
+	<MainHeading class="z-10">Pedro Silva</MainHeading>
+	<div class="gap-2 italic z-10">
 		<p>Highly curious individual and passionate developer, lover of all things internet.</p>
 		<p class="font-bold">Welcome to my virtual home!</p>
 	</div>
