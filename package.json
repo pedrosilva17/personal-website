@@ -42,8 +42,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@dimforge/rapier3d-compat": "^0.13.1",
 		"@threlte/core": "^7.0.12",
 		"@threlte/extras": "^8.3.0",
+		"@threlte/rapier": "^2.0.0",
 		"@types/three": "^0.160.0",
 		"better-sqlite3": "^9.2.2",
 		"d3": "^7.8.5",
