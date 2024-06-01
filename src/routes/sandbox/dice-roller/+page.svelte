@@ -1,0 +1,48 @@
+<script lang="ts">
+	import SandboxAreaPage from '$lib/sandbox/SandboxAreaPage.svelte';
+	import InfoModal from '$lib/sandbox/InfoModal.svelte';
+	import DiceRollerScene from '$lib/3d/DiceRollerScene.svelte';
+	import { Canvas } from '@threlte/core';
+	import { World } from '@threlte/rapier';
+	import SceneGui from '$lib/3d/SceneGui.svelte';
+	import GuiFolder from '$lib/3d/GuiFolder.svelte';
+	import RangeInput from '$lib/common/RangeInput.svelte';
+	import { launchAngle, numDice } from '$lib/stores';
+	import NumericInput from '$lib/common/NumericInput.svelte';
+</script>
+
+<SandboxAreaPage title="Dice Roller" class="my-0">
+	<svelte:fragment slot="content">
+		<div class="relative flex flex-col m-auto w-full md:w-[85%] h-full">
+			<Canvas>
+				<World>
+					<DiceRollerScene />
+				</World>
+			</Canvas>
+			<SceneGui title="Settings">
+				<svelte:fragment slot="folders">
+					<GuiFolder title="Performance">
+						<svelte:fragment slot="content">
+							<NumericInput label="Dice Limit" range={[1, 100]} bind={numDice} />
+						</svelte:fragment>
+					</GuiFolder>
+					<GuiFolder title="Dice">
+						<svelte:fragment slot="content">
+							<RangeInput
+								label="Launch Angle"
+								range={[0.0, Math.PI, 2 * Math.PI, 0.01]}
+								scaleValues={['0', '180', '360']}
+								bind={launchAngle}
+							/>
+						</svelte:fragment>
+					</GuiFolder>
+				</svelte:fragment>
+			</SceneGui>
+		</div>
+	</svelte:fragment>
+	<InfoModal slot="modal">
+		This is a 3D scene where you can throw dice and see what numbers you get. Might be useful if you
+		are playing a board game remotely with your friends, or maybe you just really like watching
+		cubes roll.
+	</InfoModal>
+</SandboxAreaPage>

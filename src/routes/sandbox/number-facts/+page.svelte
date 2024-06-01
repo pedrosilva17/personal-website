@@ -5,8 +5,9 @@
 	import { cubicOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 	import Dice from 'svelte-ionicons/Dice.svelte';
-	import SandboxAreaPage from '$lib/layout/SandboxAreaPage.svelte';
+	import SandboxAreaPage from '$lib/sandbox/SandboxAreaPage.svelte';
 	import MainHeading from '$lib/layout/MainHeading.svelte';
+	import InfoModal from '$lib/sandbox/InfoModal.svelte';
 
 	let info: NumberInfo;
 	let tweenedNumber: Tweened<number> = tweened(1, {
@@ -41,14 +42,11 @@
 			>Roll <Dice class="group-hover:animate-shake outline-none" /></button
 		>
 	</svelte:fragment>
-	<section slot="modal">
-		<h2 class="font-bold text-lg m-auto">What is this?</h2>
-		<p class="py-5">
-			This is a simple random fact generator about numbers, scraped from <a
-				target="_blank"
-				href="https://erich-friedman.github.io/numbers.html"
-				class="text-secondary underline">Erich Friedman's</a
-			> website. Click the "Roll" button and learn something new!
-		</p>
-	</section>
+	<InfoModal slot="modal">
+		This is a simple random fact generator about numbers, scraped from <a
+			target="_blank"
+			href="https://erich-friedman.github.io/numbers.html"
+			class="text-secondary underline">Erich Friedman's</a
+		> website. Click the "Roll" button and learn something new!
+	</InfoModal>
 </SandboxAreaPage>

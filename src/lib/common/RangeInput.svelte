@@ -5,6 +5,7 @@
 		range: [number, number, number, number],
 		scaleValues: [string, string, string] | string = '',
 		bind: Writable<number>;
+	//TODO: make current value visible above the slider (right side, like in the numeric)
 </script>
 
 <span class="flex flex-col gap-2">
@@ -17,7 +18,7 @@
 		step={range[3]}
 		class="range range-primary w-full"
 	/>
-	<div class="w-full flex justify-between text-xs">
+	<div class="w-full flex justify-between text-xs px-2">
 		<span>{scaleValues[0] ?? range[0].toFixed(1)}</span>
 		<span>|</span>
 		<span>{scaleValues[1] ?? range[1].toFixed(1)}</span>

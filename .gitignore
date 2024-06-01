@@ -6,6 +6,7 @@ node_modules
 /external/numbers.html
 .env
 .env.*
+.eslintcache
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

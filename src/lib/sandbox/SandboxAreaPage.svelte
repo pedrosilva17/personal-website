@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Page from './Page.svelte';
+	import Page from '../layout/Page.svelte';
 	import ArrowBack from 'svelte-ionicons/ArrowBack.svelte';
 	import Information from 'svelte-ionicons/Information.svelte';
 	export let title: string;

@@ -15,8 +15,8 @@
 		topColor,
 		midColor,
 		botColor,
-		positionY,
-	} from './stores';
+		positionY
+	} from '../stores';
 
 	let clock = new Clock();
 	let toggleParts = 0;
