@@ -7,8 +7,9 @@
 	import SceneGui from '$lib/3d/SceneGui.svelte';
 	import GuiFolder from '$lib/3d/GuiFolder.svelte';
 	import RangeInput from '$lib/common/RangeInput.svelte';
-	import { launchAngle, numDice } from '$lib/stores';
+	import { launchAngle, launchSpeed, numDice } from '$lib/stores';
 	import NumericInput from '$lib/common/NumericInput.svelte';
+	import { radToDeg } from 'three/src/math/MathUtils.js';
 </script>
 
 <SandboxAreaPage title="Dice Roller" class="my-0">
@@ -30,9 +31,16 @@
 						<svelte:fragment slot="content">
 							<RangeInput
 								label="Launch Angle"
-								range={[0.0, Math.PI, 2 * Math.PI, 0.01]}
+								range={[0.0, Math.PI, 2 * Math.PI, Math.PI / 32]}
 								scaleValues={['0', '180', '360']}
 								bind={launchAngle}
+								valueDisplayModifier={radToDeg}
+							/>
+							<RangeInput
+								label="Launch Speed"
+								range={[1, 5, 20, 1]}
+								scaleValues={['1', '10', '20']}
+								bind={launchSpeed}
 							/>
 						</svelte:fragment>
 					</GuiFolder>

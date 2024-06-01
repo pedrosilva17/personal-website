@@ -5,7 +5,7 @@
 	import Die from './Dice.svelte';
 	import { interactivity } from '@threlte/extras';
 	import { writable, type Writable } from 'svelte/store';
-	import { launchAngle, numDice } from '$lib/stores';
+	import { launchAngle, launchSpeed, numDice } from '$lib/stores';
 
 	interactivity();
 
@@ -83,6 +83,6 @@
 <CollisionGroups groups={[0]}>
 	<!-- WALLS -->
 	{#each $dicePositions as diePos (diePos)}
-		<Die bind:position={diePos} launchAngle={$launchAngle} />
+		<Die bind:position={diePos} launchAngle={$launchAngle} launchSpeed={$launchSpeed} />
 	{/each}
 </CollisionGroups>

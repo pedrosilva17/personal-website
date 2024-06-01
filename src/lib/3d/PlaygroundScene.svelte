@@ -17,6 +17,7 @@
 		botColor,
 		positionY
 	} from '../stores';
+	import { radToDeg } from 'three/src/math/MathUtils.js';
 
 	let clock = new Clock();
 	let toggleParts = 0;
@@ -71,9 +72,10 @@
 				<RangeInput label="Scale" range={[0.0, 1.0, 2.0, 0.01]} bind={scaling} />
 				<RangeInput
 					label="Rotation (Y axis)"
-					range={[0.0, Math.PI, 2 * Math.PI, 0.01]}
+					range={[0.0, Math.PI, 2 * Math.PI, Math.PI / 32]}
 					scaleValues={['0.0', '180.0', '360.0']}
 					bind={rotationY}
+					valueDisplayModifier={radToDeg}
 				/>
 				<ColorInput label="Top Color" bind={topColor} />
 				<ColorInput label="Mid Color" bind={midColor} />

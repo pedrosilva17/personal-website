@@ -19,3 +19,4 @@ export const botColor = writable('#ffffff');
 //Dice Roller
 export const numDice = writable(20);
 export const launchAngle = writable(0);
+export const launchSpeed = writable(5);

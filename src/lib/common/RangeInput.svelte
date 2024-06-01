@@ -4,12 +4,19 @@
 	export let label: string,
 		range: [number, number, number, number],
 		scaleValues: [string, string, string] | string = '',
-		bind: Writable<number>;
-	//TODO: make current value visible above the slider (right side, like in the numeric)
+		bind: Writable<number>,
+		valueDisplayModifier: (a: number) => number = (a) => {
+			return a;
+		};
 </script>
 
 <span class="flex flex-col gap-2">
 	<label for={label}>{label}</label>
+	<p class="w-full text-right">
+		{Number.isInteger($bind)
+			? valueDisplayModifier($bind).toString()
+			: valueDisplayModifier($bind).toFixed(2)}
+	</p>
 	<input
 		bind:value={$bind}
 		type="range"
@@ -19,10 +26,8 @@
 		class="range range-primary w-full"
 	/>
 	<div class="w-full flex justify-between text-xs px-2">
-		<span>{scaleValues[0] ?? range[0].toFixed(1)}</span>
-		<span>|</span>
-		<span>{scaleValues[1] ?? range[1].toFixed(1)}</span>
-		<span>|</span>
-		<span>{scaleValues[2] ?? range[2].toFixed(1)}</span>
+		<span class="text-left w-1/4">{scaleValues[0] ?? range[0].toFixed(1)}</span>
+		<span class="text-center w-1/2 border-x">{scaleValues[1] ?? range[1].toFixed(1)}</span>
+		<span class="text-right w-1/4">{scaleValues[2] ?? range[2].toFixed(1)}</span>
 	</div>
 </span>

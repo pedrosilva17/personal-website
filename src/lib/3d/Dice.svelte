@@ -5,21 +5,15 @@
 	import { BoxGeometry, Mesh, MeshStandardMaterial, Vector3 } from 'three';
 	import { randFloat } from 'three/src/math/MathUtils.js';
 
-	export let position: [number, number, number];
-	export let launchAngle: number;
+	export let position: [number, number, number], launchAngle: number, launchSpeed: number;
 	let dieMesh: Mesh;
 
 	let rigidBody: RapierRigidBody;
 
 	const { stop } = useTask(() => {
 		if (rigidBody) {
-			//TODO: Make dice throw intensity controllable by an input (range/numeric) instead of random float
 			rigidBody.applyImpulse(
-				new Vector3(
-					randFloat(1, 10) * Math.cos(launchAngle),
-					2,
-					randFloat(1, 10) * Math.sin(launchAngle)
-				),
+				new Vector3(launchSpeed * Math.cos(launchAngle), 2, launchSpeed * Math.sin(launchAngle)),
 				true
 			);
 			rigidBody.applyTorqueImpulse(new Vector3(randFloat(-2, 2), 2, randFloat(-2, 2)), true);
