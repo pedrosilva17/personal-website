@@ -7,9 +7,10 @@
 	import SceneGui from '$lib/3d/SceneGui.svelte';
 	import GuiFolder from '$lib/3d/GuiFolder.svelte';
 	import RangeInput from '$lib/common/RangeInput.svelte';
-	import { launchAngle, launchSpeed, numDice } from '$lib/stores';
+	import { diceColor, groundColor, launchAngle, launchSpeed, numDice } from '$lib/stores';
 	import NumericInput from '$lib/common/NumericInput.svelte';
 	import { radToDeg } from 'three/src/math/MathUtils.js';
+	import ColorInput from '$lib/common/ColorInput.svelte';
 </script>
 
 <SandboxAreaPage title="Dice Roller" class="my-0">
@@ -22,11 +23,6 @@
 			</Canvas>
 			<SceneGui title="Settings">
 				<svelte:fragment slot="folders">
-					<GuiFolder title="Performance">
-						<svelte:fragment slot="content">
-							<NumericInput label="Dice Limit" range={[1, 100]} bind={numDice} />
-						</svelte:fragment>
-					</GuiFolder>
 					<GuiFolder title="Dice">
 						<svelte:fragment slot="content">
 							<RangeInput
@@ -42,6 +38,17 @@
 								scaleValues={['1', '10', '20']}
 								bind={launchSpeed}
 							/>
+							<ColorInput label="Color" bind={diceColor} />
+						</svelte:fragment>
+					</GuiFolder>
+					<GuiFolder title="Scene">
+						<svelte:fragment slot="content">
+							<ColorInput label="Ground Color" bind={groundColor} />
+						</svelte:fragment>
+					</GuiFolder>
+					<GuiFolder title="Performance">
+						<svelte:fragment slot="content">
+							<NumericInput label="Dice Limit" range={[1, 100]} bind={numDice} />
 						</svelte:fragment>
 					</GuiFolder>
 				</svelte:fragment>

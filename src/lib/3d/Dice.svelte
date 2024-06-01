@@ -16,7 +16,10 @@ Title: Free Dice Model (D6) Low Poly 4K
 	import { Mesh, Vector3 } from 'three';
 	import { randFloat } from 'three/src/math/MathUtils.js';
 
-	export let position: [number, number, number], launchAngle: number, launchSpeed: number;
+	export let position: [number, number, number],
+		launchAngle: number,
+		launchSpeed: number,
+		color: string;
 	let dieMesh: Mesh;
 
 	let rigidBody: RapierRigidBody;
@@ -53,6 +56,7 @@ Title: Free Dice Model (D6) Low Poly 4K
 						rotation={[randFloat(0, 360), randFloat(0, 360), randFloat(0, 360)]}
 						geometry={gltf.nodes.redo_uv_Material001_0.geometry}
 						material={gltf.materials['Material.001']}
+						material.color={color}
 					/>
 				</AutoColliders>
 			</RigidBody>

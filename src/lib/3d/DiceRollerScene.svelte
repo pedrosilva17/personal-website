@@ -5,13 +5,13 @@
 	import Die from './Dice.svelte';
 	import { interactivity } from '@threlte/extras';
 	import { writable, type Writable } from 'svelte/store';
-	import { launchAngle, launchSpeed, numDice } from '$lib/stores';
+	import { diceColor, groundColor, launchAngle, launchSpeed, numDice } from '$lib/stores';
 
 	interactivity();
 
 	const { scene } = useThrelte();
 	const light = new DirectionalLight(0xffffff, 1.5);
-	light.position.set(0, 20, 30);
+	light.position.set(-20, 20, 20);
 	light.castShadow = true;
 	light.shadow.camera.top = 30;
 	light.shadow.camera.left = -30;
@@ -60,14 +60,14 @@
 		<AutoColliders shape={'cuboid'}>
 			<T.Mesh
 				on:click={(e) => {
-					cursorPosition.x = e.point.x;
+					cursorPosition.x = e.point.x - 2.5;
 					cursorPosition.z = e.point.z;
 					handleMouseClick();
 				}}
 				receiveShadow
 				material={new MeshStandardMaterial({
 					transparent: false,
-					color: 0x444444
+					color: $groundColor
 				})}
 			>
 				<T.BoxGeometry args={[500, 1, 500]} />
@@ -82,6 +82,11 @@
 <CollisionGroups groups={[0]}>
 	<!-- WALLS -->
 	{#each $dicePositions as diePos (diePos)}
-		<Die bind:position={diePos} launchAngle={$launchAngle} launchSpeed={$launchSpeed} />
+		<Die
+			bind:position={diePos}
+			launchAngle={$launchAngle}
+			launchSpeed={$launchSpeed}
+			color={$diceColor}
+		/>
 	{/each}
 </CollisionGroups>

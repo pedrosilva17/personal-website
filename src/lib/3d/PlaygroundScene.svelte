@@ -65,7 +65,7 @@
 	</T.Mesh>
 </Canvas>
 
-<SceneGui title="Controls">
+<SceneGui title="Settings">
 	<svelte:fragment slot="folders">
 		<GuiFolder title="Model">
 			<svelte:fragment slot="content">
