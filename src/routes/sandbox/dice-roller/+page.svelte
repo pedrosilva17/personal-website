@@ -49,8 +49,8 @@
 		</div>
 	</svelte:fragment>
 	<InfoModal slot="modal">
-		This is a 3D scene where you can throw dice and see what numbers you get. Might be useful if you
-		are playing a board game remotely with your friends, or maybe you just really like watching
-		cubes roll.
+		This is a 3D scene where you can throw dice and see what numbers you get, just click/tap the
+		screen to spawn a new die. Might be useful if you are playing a board game remotely with your
+		friends, or maybe you just really like watching cubes roll.
 	</InfoModal>
 </SandboxAreaPage>

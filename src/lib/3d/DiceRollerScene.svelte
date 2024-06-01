@@ -27,7 +27,6 @@
 		dicePositions.update((dicePos) => {
 			return [...dicePos, [cursorPosition.x, 3, cursorPosition.z]];
 		});
-		console.log($launchAngle);
 	}
 
 	useTask(() => {

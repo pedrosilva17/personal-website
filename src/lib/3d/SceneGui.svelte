@@ -5,10 +5,8 @@
 			?.querySelectorAll('input,button');
 		if (!subCollapseList) return;
 		for (const collapse of subCollapseList) {
-			console.log(collapse.getAttribute('tabindex'));
 			const newValue = collapse.getAttribute('tabindex') === ('0' || null) ? '-1' : '0';
 			collapse.setAttribute('tabindex', newValue);
-			console.log(newValue);
 		}
 	}
 
