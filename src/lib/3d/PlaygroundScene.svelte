@@ -36,7 +36,7 @@
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<Canvas size={{ width: Math.min(1536, innerWidth), height: innerHeight }}>
+<Canvas size={{ width: Math.min(1536 - 40, innerWidth - 40), height: innerHeight - 175 }}>
 	<T.DirectionalLight intensity={$dirIntensity} position={[0, 5, 15]} />
 	<T.AmbientLight intensity={$ambIntensity} />
 

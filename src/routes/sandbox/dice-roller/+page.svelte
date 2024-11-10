@@ -21,7 +21,7 @@
 <SandboxAreaPage title="Dice Roller" class="my-0">
 	<svelte:fragment slot="content">
 		<div class="relative flex flex-col h-full w-full">
-			<Canvas size={{ width: Math.min(1536, innerWidth), height: innerHeight - 200 }}>
+			<Canvas size={{ width: Math.min(1536 - 40, innerWidth - 40), height: innerHeight - 175 }}>
 				<World>
 					<DiceRollerScene />
 				</World>
