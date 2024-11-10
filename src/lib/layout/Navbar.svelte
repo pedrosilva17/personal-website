@@ -6,9 +6,9 @@
 
 <header>
 	<nav
-		class="py-3 px-5 lg:pr-28 flex flex-row bg-primary text-white lg:text-lg border-b-2 border-secondary"
+		class="py-3 px-5 lg:pr-28 flex flex-row bg-primary justify-center text-white lg:text-lg border-b-2 border-secondary"
 	>
-		<div class="flex flex-1 flex-col md:flex-row md:w-full justify-end">
+		<div class="flex flex-1 flex-col md:flex-row max-w-screen-2xl justify-end">
 			<button
 				on:click={() => {
 					hidden = !hidden;

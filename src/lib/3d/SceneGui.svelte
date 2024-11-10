@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="collapse collapse-arrow absolute mx-auto top-0 right-0 max-md:left-0 w-36 md:w-64 bg-secondary text-primary rounded-xl text-left break-words opacity-80 md:opacity-100 z-10"
+	class="collapse collapse-arrow absolute mx-auto top-0 right-0 left-0 w-36 md:w-64 bg-secondary text-primary rounded-xl text-left break-words opacity-80 md:opacity-100 z-10"
 	style="outline-color: oklch(var(--s))"
 >
 	<input on:click={toggleFocusable} name={title} type="checkbox" />

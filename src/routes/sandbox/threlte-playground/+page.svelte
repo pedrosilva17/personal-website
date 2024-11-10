@@ -6,7 +6,7 @@
 
 <SandboxAreaPage title="Threlte Playground" class="my-0">
 	<svelte:fragment slot="content">
-		<div class="relative flex flex-col m-auto w-full md:w-[85%] h-full">
+		<div class="relative flex flex-col m-auto w-full h-full">
 			<PlaygroundScene />
 		</div>
 	</svelte:fragment>

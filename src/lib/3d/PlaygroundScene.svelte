@@ -19,6 +19,8 @@
 	} from '../stores';
 	import { radToDeg } from 'three/src/math/MathUtils.js';
 
+	let innerWidth = 0;
+	let innerHeight = 0;
 	let clock = new Clock();
 	let toggleParts = 0;
 	let visibleTranslationControls = 1;
@@ -32,7 +34,9 @@
 	setInterval(setPosition, 10);
 </script>
 
-<Canvas>
+<svelte:window bind:innerWidth bind:innerHeight />
+
+<Canvas size={{ width: Math.min(1536, innerWidth), height: innerHeight }}>
 	<T.DirectionalLight intensity={$dirIntensity} position={[0, 5, 15]} />
 	<T.AmbientLight intensity={$ambIntensity} />
 

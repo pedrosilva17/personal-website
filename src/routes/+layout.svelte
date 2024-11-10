@@ -36,7 +36,7 @@
 </script>
 
 <Navbar />
-<main class="flex relative bg-primary flex-grow text-white">
+<main class="flex relative bg-primary flex-grow text-white max-w-screen-2xl mx-auto">
 	<slot />
 </main>
 <Footer />

@@ -11,12 +11,17 @@
 	import NumericInput from '$lib/common/NumericInput.svelte';
 	import { radToDeg } from 'three/src/math/MathUtils.js';
 	import ColorInput from '$lib/common/ColorInput.svelte';
+
+	let innerWidth = 0;
+	let innerHeight = 0;
 </script>
+
+<svelte:window bind:innerWidth bind:innerHeight />
 
 <SandboxAreaPage title="Dice Roller" class="my-0">
 	<svelte:fragment slot="content">
-		<div class="relative flex flex-col m-auto w-full md:w-[85%] h-full">
-			<Canvas>
+		<div class="relative flex flex-col h-full w-full">
+			<Canvas size={{ width: Math.min(1536, innerWidth), height: innerHeight - 200 }}>
 				<World>
 					<DiceRollerScene />
 				</World>

@@ -11,7 +11,7 @@
 		<p>Highly curious individual and passionate developer, lover of all things internet.</p>
 		<p class="font-bold">Welcome to my virtual home!</p>
 	</div>
-	<div class="absolute blur-sm left-0 w-full h-2/3 opacity-25">
+	<div class="absolute blur-sm left-0 w-full h-1/2 opacity-25">
 		<Canvas>
 			<BackgroundScene />
 		</Canvas>
