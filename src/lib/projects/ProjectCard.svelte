@@ -22,7 +22,7 @@
 		{/if}
 	</figure>
 	<span
-		class="absolute flex flex-row gap-3 px-4 py-2 top-0 right-0 bg-primary-variant rounded-bl-2xl"
+		class="absolute flex flex-row gap-3 px-4 py-2 top-0 right-0 shadow-md bg-primary-variant rounded-bl-2xl"
 	>
 		{#if project.website}
 			<IconLink
