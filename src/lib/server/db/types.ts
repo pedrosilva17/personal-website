@@ -4,20 +4,19 @@ export type NumberInfo = {
 	description: string;
 };
 
-export type Project = {
+export interface Project {
 	id: number;
 	title: string;
 	description: string;
 	tags: string[];
-	link: string;
+	website: string;
+	github: string;
 	hasImage: boolean;
-};
+}
 
-export type ProjectTag = {
+export interface Tag {
 	id: number;
-	title: string;
-	description: string;
 	tag: string;
-	link: string;
-	hasImage: boolean;
-};
+}
+
+export type ProjectTag = Project & Tag;

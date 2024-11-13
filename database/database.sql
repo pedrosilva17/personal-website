@@ -14,7 +14,8 @@ CREATE TABLE Projects (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
     description TEXT,
-    link TEXT,
+    website TEXT,
+    github TEXT,
     has_image INTEGER
 );
 
@@ -32,16 +33,16 @@ CREATE TABLE ProjectTags (
 );
 
 /* Populate */
-INSERT INTO Projects (title, description, link, has_image) VALUES
-    ('Bot of Greed', 'A Discord bot which displays and uses information about Yu-Gi-Oh cards.', 'https://github.com/pedrosilva17/bot-of-greed', 1),
-    ('FEUPZero', 'A three.js car racing game for one player.', 'https://github.com/pedrosilva17/sgi-2023/tree/main/tp3', 1),
-    ('Personal Website', "My personal website, where you're reading this from.", 'https://github.com/pedrosilva17/personal-website', 1),
-    ('Earworm', 'A web prototype for a music store.', 'https://github.com/pedrosilva17/feup-lbaw-proj', 1),
-    ('Bound', 'A recreation of the board game Bound for one or two players.', 'https://github.com/pedrosilva17/bound-ia-proj-1', 1),
-    ('Easy Wallpaper', 'A simple terminal program to create wallpapers with image patterns.', 'https://github.com/pedrosilva17/easy-wallpaper', 1),
-    ('Qawale', 'A recreation of the board game Qawale in the terminal using functional programming.', 'https://github.com/pedrosilva17/feup-pfl-qawale', 1),
-    ('Disease Search Engine', 'A search engine for querying disease information, displayed in a map view.', 'https://github.com/pedrosilva17/feup-pri-2023', 1),
-    ('Flying Creature Playground', 'A WebGL scene featuring a controllable creature that throws eggs.', 'https://github.com/pedrosilva17/cg-2023/tree/master/project', 1);
+INSERT INTO Projects (title, description, website, github, has_image) VALUES
+    ('Bot of Greed', 'A Discord bot which displays and uses information about Yu-Gi-Oh cards.', null, 'https://github.com/pedrosilva17/bot-of-greed', 1),
+    ('FEUPZero', 'A three.js car racing game for one player.', 'https://race.pedrosilvadev.pt','https://github.com/pedrosilva17/sgi-2023/tree/main/tp3', 1),
+    ('Personal Website', "My personal website, where you're reading this from.", 'https://pedrosilvadev.pt','https://github.com/pedrosilva17/personal-website', 1),
+    ('Earworm', 'A web prototype for a music store.', null, 'https://github.com/pedrosilva17/feup-lbaw-proj', 1),
+    ('Bound', 'A recreation of the board game Bound for one or two players.', null, 'https://github.com/pedrosilva17/bound-ia-proj-1', 1),
+    ('Easy Wallpaper', 'A simple terminal program to create wallpapers with image patterns.', null, 'https://github.com/pedrosilva17/easy-wallpaper', 1),
+    ('Qawale', 'A recreation of the board game Qawale in the terminal using functional programming.', null, 'https://github.com/pedrosilva17/feup-pfl-qawale', 1),
+    ('Disease Search Engine', 'A search engine for querying disease information, displayed in a map view.', null, 'https://github.com/pedrosilva17/feup-pri-2023', 1),
+    ('Flying Creature Playground', 'A WebGL scene featuring a controllable creature that throws eggs.', 'https://bird.pedrosilvadev.pt', 'https://github.com/pedrosilva17/cg-2023/tree/master/project', 1);
 
 INSERT INTO Tags (name) VALUES
     ('Personal'),

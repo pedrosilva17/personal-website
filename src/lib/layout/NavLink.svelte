@@ -6,7 +6,8 @@
 <a
 	{href}
 	class:active={$page.url.pathname === href}
-	class="group transition duration-300 ease-in-out px-4 py-1 w-full md:w-fit text-base lg:text-xl justify-center text-center"
+	class="group transition duration-300 ease-in-out px-4 py-1 w-full md:w-fit text-base lg:text-xl justify-center text-center outline-none focus:ring-1 focus:ring-primary hover:text-secondary
+	 focus:text-secondary"
 >
 	<slot />
 	<span
