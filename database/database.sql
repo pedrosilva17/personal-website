@@ -34,11 +34,11 @@ CREATE TABLE ProjectTags (
 
 /* Populate */
 INSERT INTO Projects (title, description, website, github, has_image) VALUES
-    ('WordleLife', "A wrestling-themed, 'Wordle'-like game made with Nuxt.", 'https://wordlelife.pedrosilvadev.pt', 'https://github.com/pedrosilva17/wordlelife', 1),
-    ('Personal Website', "My personal website, where you're reading this from.", 'https://pedrosilvadev.pt','https://github.com/pedrosilva17/personal-website', 1),
+    ('WordleLife', "A wrestling-themed, 'Wordle'-like game made with Nuxt.", 'https://wordlelife.frompedrosilva.com', 'https://github.com/pedrosilva17/wordlelife', 1),
+    ('Personal Website', "My personal website, where you're reading this from.", 'https://frompedrosilva.com','https://github.com/pedrosilva17/personal-website', 1),
     ('Bot of Greed', 'A Discord bot which displays and uses information about Yu-Gi-Oh cards.', null, 'https://github.com/pedrosilva17/bot-of-greed', 1),
-    ('FEUPZero', 'A three.js car racing game for one player.', 'https://race.pedrosilvadev.pt','https://github.com/pedrosilva17/sgi-2023/tree/main/tp3', 1),
-    ('Flying Creature Playground', 'A WebGL scene featuring a controllable creature that throws eggs.', 'https://bird.pedrosilvadev.pt', 'https://github.com/pedrosilva17/cg-2023/tree/master/project', 1),
+    ('FEUPZero', 'A three.js car racing game for one player.', 'https://race.frompedrosilva.com','https://github.com/pedrosilva17/sgi-2023/tree/main/tp3', 1),
+    ('Flying Creature Playground', 'A WebGL scene featuring a controllable creature that throws eggs.', 'https://bird.frompedrosilva.com', 'https://github.com/pedrosilva17/cg-2023/tree/master/project', 1),
     ('Earworm', 'A web prototype for a music store.', null, 'https://github.com/pedrosilva17/feup-lbaw-proj', 1),
     ('Bound', 'A recreation of the board game Bound for one or two players.', null, 'https://github.com/pedrosilva17/bound-ia-proj-1', 1),
     ('Easy Wallpaper', 'A simple terminal program to create wallpapers with image patterns.', null, 'https://github.com/pedrosilva17/easy-wallpaper', 1),

@@ -16,9 +16,9 @@ export const topColor = writable('#ff0000');
 export const midColor = writable('#000000');
 export const botColor = writable('#ffffff');
 
-//Dice Roller
+// Dice Roller
 export const numDice = writable(20);
 export const launchAngle = writable(0);
 export const launchSpeed = writable(5);
 export const diceColor = writable('#ffffff');
-export const groundColor = writable('#444444');
+export const groundColor = writable('#448844');

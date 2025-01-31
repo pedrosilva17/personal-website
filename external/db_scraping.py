@@ -16,7 +16,7 @@ def connection_close(connection: sqlite3.Connection, cursor: sqlite3.Cursor):
 def create_database(sql_path, db_path):
     with open(sql_path, "r", encoding="utf-8") as file:
         sql_commands = file.read()
-        
+
     connection, cursor = connection_open(db_path)
     try:
         cursor.executescript(sql_commands)
@@ -25,7 +25,7 @@ def create_database(sql_path, db_path):
         print(f"Error creating database: {e}")
     finally:
         connection.close()
-    
+
 def save(pairs):
     connection, cursor = connection_open("database/database.db")
     for number, description in pairs:
