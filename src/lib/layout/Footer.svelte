@@ -5,7 +5,7 @@
 </script>
 
 <footer class="flex flex-row p-3 bg-primary w-full p-auto text-center justify-center text-white">
-	<p class="flex text-lg border-r border-white px-2">Pedro Silva 2024</p>
+	<p class="flex text-lg border-r border-white px-2">Pedro Silva</p>
 	<div class="flex flex-row gap-2 px-2">
 		<IconLink
 			id="github"

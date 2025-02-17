@@ -16,6 +16,8 @@
 		interpolate: interpolateRound
 	});
 	async function newNumber() {
+		const button = document.getElementById('roll') as HTMLButtonElement;
+		button.disabled = true;
 		const response = await fetch('/api/number-facts', {
 			method: 'GET',
 			headers: {
@@ -25,6 +27,9 @@
 
 		info = await response.json();
 		$tweenedNumber = Math.floor(info.number);
+		setTimeout(() => {
+			button.disabled = false;
+		}, 2000);
 	}
 </script>
 
@@ -32,13 +37,16 @@
 	<svelte:fragment slot="content">
 		<MainHeading>{info ? $tweenedNumber : 'Number Facts'}</MainHeading>
 		{#key info?.description}
-			<p in:fade={{ duration: 1000 }}>
+			<p in:fade={{ duration: 1000 }} class="min-h-24">
 				{@html info
 					? info.description
 					: 'Click the button below and learn something new about a number!'}
 			</p>
 		{/key}
-		<button on:click={newNumber} class="btn btn-secondary w-fit m-auto text-lg text-primary group"
+		<button
+			id="roll"
+			on:click={newNumber}
+			class="btn btn-secondary w-fit m-auto text-lg text-primary group disabled:bg-secondary/60 disabled:text-primary"
 			>Roll <Dice class="group-hover:animate-shake outline-none" /></button
 		>
 	</svelte:fragment>
