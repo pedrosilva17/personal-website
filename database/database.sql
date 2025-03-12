@@ -34,6 +34,7 @@ CREATE TABLE ProjectTags (
 
 /* Populate */
 INSERT INTO Projects (title, description, website, github, has_image) VALUES
+    ('Eventacle', "An event prediction website with no money betting involved.", 'https://eventacle.frompedrosilva.com', 'https://github.com/pedrosilva17/eventacle', 1),
     ('WordleLife', "A wrestling-themed, 'Wordle'-like game made with Nuxt.", 'https://wordlelife.frompedrosilva.com', 'https://github.com/pedrosilva17/wordlelife', 1),
     ('Personal Website', "My personal website, where you're reading this from.", 'https://frompedrosilva.com','https://github.com/pedrosilva17/personal-website', 1),
     ('Bot of Greed', 'A Discord bot which displays and uses information about Yu-Gi-Oh cards.', null, 'https://github.com/pedrosilva17/bot-of-greed', 1),
@@ -56,23 +57,25 @@ INSERT INTO Tags (name) VALUES
 INSERT INTO ProjectTags (project_id, tag_id) VALUES
     (1, 1),
     (1, 3),
-    (1, 6),
     (2, 1),
     (2, 3),
+    (2, 6),
     (3, 1),
-    (3, 4),
-    (4, 2),
-    (4, 6),
+    (3, 3),
+    (4, 1),
+    (4, 4),
     (5, 2),
     (5, 6),
     (6, 2),
-    (6, 3),
+    (6, 6),
     (7, 2),
-    (7, 6),
-    (8, 1),
-    (8, 5),
-    (9, 2),
-    (9, 6),
+    (7, 3),
+    (8, 2),
+    (8, 6),
+    (9, 1),
+    (9, 5),
     (10, 2),
-    (10, 3);
+    (10, 6),
+    (11, 2),
+    (11, 3);
 
