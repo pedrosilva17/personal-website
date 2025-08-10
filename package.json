@@ -47,7 +47,7 @@
 		"@threlte/extras": "^8.3.0",
 		"@threlte/rapier": "^2.0.0",
 		"@types/three": "^0.160.0",
-		"better-sqlite3": "^9.2.2",
+		"better-sqlite3": "^12.2.0",
 		"d3": "^7.8.5",
 		"three": "^0.160.1"
 	},
