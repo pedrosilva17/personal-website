@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
-    "build": "wrangler types --check && wrangler types && vite build",
+    "build": "wrangler types && vite build",
     "preview": "npm run build && wrangler dev",
     "check": "wrangler types --check && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
