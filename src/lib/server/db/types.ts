@@ -19,4 +19,7 @@ export interface Tag {
 	tag: string;
 }
 
-export type ProjectTag = Project & Tag;
+export type ProjectTag = Omit<Project, 'tags' | 'hasImage'> & {
+	hasImage: number;
+	tag: string;
+};

@@ -12,6 +12,8 @@
     "format": "prettier --write .",
     "prepare": "husky install",
     "gen": "wrangler types",
+    "db:migrate": "wrangler d1 migrations apply personal-website --local",
+    "db:migrate:remote": "wrangler d1 migrations apply personal-website --remote",
     "deploy": "npm run build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
@@ -19,7 +21,6 @@
     "@sveltejs/adapter-cloudflare": "^7.2.8",
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
-    "@types/better-sqlite3": "^7.6.8",
     "@types/d3": "^7.4.3",
     "@types/d3-interpolate": "^3.0.4",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -50,7 +51,6 @@
     "@threlte/extras": "^8.3.0",
     "@threlte/rapier": "^2.0.0",
     "@types/three": "^0.160.0",
-    "better-sqlite3": "^12.2.0",
     "d3": "^7.8.5",
     "three": "^0.160.1"
   },
@@ -59,7 +59,6 @@
     "*.{js,ts,css,md,svelte}": "prettier --write"
   },
   "allowScripts": {
-    "better-sqlite3@12.2.0": true,
     "esbuild@0.21.5": true,
     "esbuild@0.28.1": true,
     "svelte-preprocess@5.1.4": true,

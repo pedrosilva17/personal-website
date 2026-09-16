@@ -1,16 +1,18 @@
-import Database from 'better-sqlite3';
-import { DB_PATH } from '$env/static/private';
+import { error } from '@sveltejs/kit';
 import type { NumberInfo, Project, ProjectTag } from './types.ts';
 
-const db = new Database(DB_PATH);
-
-export function getRandomNumber(): NumberInfo {
-	const query = 'SELECT * FROM Numbers ORDER BY RANDOM() LIMIT 1;';
-	const num = db.prepare(query).get();
-	return num as NumberInfo;
+export function getDb(platform: App.Platform | undefined): D1Database {
+	const db = platform?.env.DB;
+	if (!db) error(500, 'The "DB" D1 binding is unavailable.');
+	return db;
 }
 
-export function getProjects(): Project[] {
+export async function getRandomNumber(db: D1Database): Promise<NumberInfo | null> {
+	const query = 'SELECT * FROM Numbers ORDER BY RANDOM() LIMIT 1;';
+	return db.prepare(query).first<NumberInfo>();
+}
+
+export async function getProjects(db: D1Database): Promise<Project[]> {
 	const projects: Record<number, Project> = {};
 	const query =
 		'SELECT Projects.id AS id, Projects.title AS title, Projects.description AS description, Projects.website AS website, \
@@ -18,8 +20,8 @@ export function getProjects(): Project[] {
 	LEFT JOIN ProjectTags ON Projects.id = ProjectTags.project_id \
 	LEFT JOIN Tags ON ProjectTags.tag_id = Tags.id;';
 
-	const projTech = db.prepare(query).all() as ProjectTag[];
-	for (const project of projTech) {
+	const { results } = await db.prepare(query).all<ProjectTag>();
+	for (const project of results) {
 		if (project.id in projects) projects[project.id].tags.push(project.tag);
 		else {
 			projects[project.id] = {
@@ -29,9 +31,9 @@ export function getProjects(): Project[] {
 				tags: [project.tag],
 				website: project.website,
 				github: project.github,
-				hasImage: project.hasImage
+				hasImage: Boolean(project.hasImage)
 			};
 		}
 	}
-	return Object.values(projects) as Project[];
+	return Object.values(projects);
 }
