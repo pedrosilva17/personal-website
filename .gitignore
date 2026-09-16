@@ -10,3 +10,8 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
